@@ -1,0 +1,102 @@
+[
+  {
+    "id": "mq4z9kogsowfg",
+    "text": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-08T08:57:28.816Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-08T08:00:00"
+  },
+  {
+    "id": "mq4z9kp13cpvi",
+    "text": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-08T08:57:28.837Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-08T16:30:00"
+  },
+  {
+    "id": "mq4z9kpchnxix",
+    "text": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-08T08:57:28.848Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-08T19:35:00"
+  },
+  {
+    "id": "mq4z9kphfnpk4",
+    "text": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-08T08:57:28.853Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-08T20:15:00"
+  },
+  {
+    "id": "mq4z9kplmuu4i",
+    "text": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-08T08:57:28.857Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-08T20:40:00"
+  },
+  {
+    "id": "mq4z9kpq4crni",
+    "text": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-08T08:57:28.862Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-08T08:00:00"
+  },
+  {
+    "id": "mq4z9kpv7btfx",
+    "text": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-08T08:57:28.867Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-08T16:30:00"
+  },
+  {
+    "id": "mq4z9kq5uswlw",
+    "text": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-08T08:57:28.877Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-08T19:35:00"
+  },
+  {
+    "id": "mq4z9kqb441gs",
+    "text": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-08T08:57:28.883Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-08T20:15:00"
+  },
+  {
+    "id": "mq4z9kqgjq1sk",
+    "text": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-08T08:57:28.888Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-08T20:40:00"
+  }
+]

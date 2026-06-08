@@ -1,0 +1,45 @@
+{
+  "goalId": "goal-fallback-1780832687684",
+  "date": "2026-06-07",
+  "dayNumber": 1,
+  "context": {
+    "weather": {
+      "weather": "晴",
+      "temp": "25°C",
+      "city": "本地"
+    },
+    "holiday": {
+      "weekday": "星期日",
+      "isWeekend": false
+    },
+    "progress": {
+      "currentDay": 0,
+      "totalDays": 21,
+      "percentage": 0
+    }
+  },
+  "tasks": [
+    {
+      "time": "09:00",
+      "type": "routine",
+      "title": "提醒",
+      "content": "这是降级生成的默认提醒内容，请手动编辑优化。",
+      "scheduleId": "sched-fallback-1780832687684-1"
+    },
+    {
+      "time": "21:00",
+      "type": "routine",
+      "title": "晚安",
+      "content": "晚安！明天见！祝好梦！🌙",
+      "scheduleId": "sched-fallback-1780832687684-2"
+    }
+  ],
+  "adjustmentSummary": {
+    "totalAdjustments": 0,
+    "reasons": []
+  },
+  "metadata": {
+    "generatedBy": "fallback-template",
+    "note": "这是降级生成的每日计划，建议重新生成"
+  }
+}

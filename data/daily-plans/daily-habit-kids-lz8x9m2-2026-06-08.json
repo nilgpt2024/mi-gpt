@@ -1,0 +1,48 @@
+{
+  "goalId": "daily-habit-kids-lz8x9m2",
+  "date": "2026-06-08",
+  "dayNumber": 1,
+  "context": {
+    "weather": {
+      "weather": "晴",
+      "temp": "25°C",
+      "city": "本地"
+    },
+    "holiday": {
+      "weekday": "星期一",
+      "isWeekend": false,
+      "events": []
+    },
+    "progress": {
+      "currentDay": 0,
+      "totalDays": 30,
+      "percentage": 0,
+      "streak": 0
+    }
+  },
+  "tasks": [
+    {
+      "time": "08:00",
+      "type": "routine",
+      "title": "提醒",
+      "content": "这是降级生成的默认任务。目标: 帮助小朋友培养每日阅读和刷牙习惯",
+      "scheduleId": "sched-fallback-1780829769205-1"
+    },
+    {
+      "time": "21:00",
+      "type": "routine",
+      "title": "晚安",
+      "content": "晚安！明天继续加油！💪",
+      "scheduleId": "sched-fallback-1780829769205-2"
+    }
+  ],
+  "adjustmentSummary": {
+    "totalAdjustments": 0,
+    "reasons": []
+  },
+  "metadata": {
+    "generatedAt": "2026-06-07T10:56:09.205Z",
+    "generatedBy": "fallback-template",
+    "note": "AI生成失败，使用基础模板"
+  }
+}

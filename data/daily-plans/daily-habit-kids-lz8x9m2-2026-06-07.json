@@ -1,0 +1,75 @@
+{
+  "goalId": "daily-habit-kids-lz8x9m2",
+  "date": "2026-06-07",
+  "dayNumber": 1,
+  "context": {
+    "weather": {
+      "weather": "晴",
+      "temp": "22°C",
+      "feelsLike": "24°C",
+      "humidity": "50%",
+      "uvIndex": "0 (低)",
+      "windSpeed": "14 km/h",
+      "visibility": "10 km",
+      "tips": "温度适宜，适合户外活动",
+      "city": "北京",
+      "cityEn": "beijing"
+    },
+    "holiday": [
+      "周末"
+    ],
+    "progress": {
+      "currentDay": 0,
+      "totalDays": 30,
+      "percentage": 0,
+      "streak": 0
+    }
+  },
+  "tasks": [
+    {
+      "time": "18:45",
+      "type": "reminder",
+      "title": "阅读预备铃",
+      "content": "叮咚～阅读时间快到啦！宝贝把玩具收好，选一本最爱的书，我们马上开始第1天的阅读冒险！📚✨",
+      "scheduleId": "sched-001"
+    },
+    {
+      "time": "19:00",
+      "type": "routine",
+      "title": "阅读时间",
+      "content": "阅读时间到！🎉 第1天挑战正式开始啦！和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+      "scheduleId": "sched-002"
+    },
+    {
+      "time": "19:35",
+      "type": "routine",
+      "title": "阅读分享",
+      "content": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+      "scheduleId": "sched-003"
+    },
+    {
+      "time": "20:15",
+      "type": "routine",
+      "title": "刷牙小卫士",
+      "content": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+      "scheduleId": "sched-004"
+    },
+    {
+      "time": "20:40",
+      "type": "reminder",
+      "title": "睡前晚安",
+      "content": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+      "scheduleId": "sched-005"
+    }
+  ],
+  "adjustmentSummary": {
+    "totalAdjustments": 0,
+    "reasons": []
+  },
+  "metadata": {
+    "generatedAt": "2026-06-07T12:36:01.331Z",
+    "generatedBy": "opencode-extracted",
+    "model": "gpt-4o-mini",
+    "extractedFrom": "text-response"
+  }
+}

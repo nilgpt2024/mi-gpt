@@ -1,0 +1,88 @@
+{
+  "logs": [
+    {
+      "id": "mq53n73fel97a",
+      "type": "schedule_run",
+      "timestamp": "2026-06-08T11:00:02.859Z",
+      "scheduleId": "mq4z9kp7n6864",
+      "text": "阅读时间到！🎉 和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+      "taskType": "text",
+      "output": "",
+      "success": true
+    },
+    {
+      "id": "mq53n7385wh69",
+      "type": "schedule_run",
+      "timestamp": "2026-06-08T11:00:02.852Z",
+      "scheduleId": "mq4z9kq07b6vq",
+      "text": "阅读时间到！🎉 和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+      "taskType": "text",
+      "output": "",
+      "success": true
+    },
+    {
+      "id": "mq3joz8y773kp",
+      "type": "once",
+      "timestamp": "2026-06-07T08:53:47.506Z",
+      "scheduleId": "mq3ef0n0p9415",
+      "text": "下午好呀宝贝！今天已经坚持了第1天，完成了0%的旅程，每一步都算数，你已经超级棒啦！明天继续加油哦！⭐🌈"
+    },
+    {
+      "id": "mq3joz8w8i2xk",
+      "type": "once",
+      "timestamp": "2026-06-07T08:53:47.504Z",
+      "scheduleId": "mq3ef0mvtx0rl",
+      "text": "午餐时间到！香喷喷的饭菜在等着你呢～好好吃饭，补充能量，下午继续快乐玩耍！🍚🥦"
+    },
+    {
+      "id": "mq3joz8ttut7q",
+      "type": "once",
+      "timestamp": "2026-06-07T08:53:47.501Z",
+      "scheduleId": "mq3ef0mm8lic2",
+      "text": "外面天气可好啦，26度的大晴天！出门跑一跑、跳一跳，和小花小草打个招呼吧～记得涂防晒哦！🚲🌞"
+    },
+    {
+      "id": "mq3joz8r7hh8u",
+      "type": "once",
+      "timestamp": "2026-06-07T08:53:47.499Z",
+      "scheduleId": "mq3ef0mhic0zw",
+      "text": "叮咚～现在是我们的专属任务时间！第1天刚开始，做一点点就很棒啦，慢慢来，宝贝加油！🎉💪"
+    },
+    {
+      "id": "mq3joz8ppcckj",
+      "type": "once",
+      "timestamp": "2026-06-07T08:53:47.497Z",
+      "scheduleId": "mq3ef0mckdl4y",
+      "text": "早安宝贝！21天成长之旅第1天开始啦～拉开窗帘晒晒太阳，喝口温水，今天也是元气满满的一天哟！☀️⭐"
+    },
+    {
+      "id": "mq3joz8o619dd",
+      "type": "once",
+      "timestamp": "2026-06-07T08:53:47.496Z",
+      "scheduleId": "mq2cgj51uyovd",
+      "text": "今天真开心！第1天的挑战全部完成咯，你太棒啦！洗个热水澡，听个小故事，乖乖睡觉吧～明天见！⭐🌙"
+    },
+    {
+      "id": "mq3joz8m0qrhe",
+      "type": "once",
+      "timestamp": "2026-06-07T08:53:47.494Z",
+      "scheduleId": "mq2cgj4qkqwk3",
+      "text": "小肚子是不是咕咕叫啦？来点甜甜的水果和香香的饼干吧！吃饱了才有力气继续玩哟～🍎🍌"
+    },
+    {
+      "id": "mq3joz8lv0s33",
+      "type": "once",
+      "timestamp": "2026-06-07T08:53:47.493Z",
+      "scheduleId": "mq2cgj4kxxowt",
+      "text": "叮咚！到我们的学习时间啦！今天是第一次见面，一起认识新朋友、学一个新本领吧！加油哟～📚⭐"
+    },
+    {
+      "id": "mq3joz8io8auf",
+      "type": "once",
+      "timestamp": "2026-06-07T08:53:47.490Z",
+      "scheduleId": "mq2cgj4czonmw",
+      "text": "早上好呀小宝贝！第1天的奇妙旅程开始咯！我们一起伸个懒腰，喝口温水，准备迎接棒棒的一天吧～☀️"
+    }
+  ],
+  "lastUpdated": "2026-06-08T11:00:02.860Z"
+}

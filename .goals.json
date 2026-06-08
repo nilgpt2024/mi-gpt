@@ -1,0 +1,28 @@
+{
+  "goals": [
+    {
+      "id": "daily-habit-kids-lz8x9m2",
+      "title": "帮助小朋友培养每日阅读和刷牙习惯",
+      "type": "habit",
+      "status": "in_progress",
+      "config": {
+        "tone": "温馨鼓励",
+        "audience": "6岁儿童",
+        "duration": 30,
+        "targetTime": "08:00"
+      },
+      "progress": {
+        "currentDay": 0,
+        "totalDays": 30,
+        "percentage": 0,
+        "streak": 0
+      },
+      "createdAt": "2026-06-07T00:00:00.000Z",
+      "updatedAt": "2026-06-07T00:00:00.000Z",
+      "startDate": "2026-06-07T11:04:38.621Z",
+      "endDate": "2026-07-07T11:04:38.621Z",
+      "nextReviewAt": "2026-06-07T14:00:00.000Z"
+    }
+  ],
+  "lastUpdated": "2026-06-07T11:04:38.622Z"
+}

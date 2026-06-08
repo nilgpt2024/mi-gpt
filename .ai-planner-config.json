@@ -1,0 +1,9 @@
+{
+  "enabled": true,
+  "city": "合肥",
+  "time": "23:00",
+  "weather": true,
+  "holiday": true,
+  "routine": true,
+  "prompt": ""
+}

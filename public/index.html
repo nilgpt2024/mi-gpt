@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>小爱音箱管理后台</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- 侧边栏 -->
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="logo-icon">🎙️</span>
+        <span class="logo-text">小爱管理</span>
+      </div>
+      <nav class="nav">
+        <a href="#dashboard" class="nav-item active" data-page="dashboard">
+          <span class="nav-icon">📊</span>
+          <span>总览</span>
+        </a>
+        <a href="#tts" class="nav-item" data-page="tts">
+          <span class="nav-icon">🎙️</span>
+          <span>语音播报</span>
+        </a>
+        <a href="#ai" class="nav-item" data-page="ai">
+          <span class="nav-icon">🤖</span>
+          <span>AI 对话</span>
+        </a>
+        <a href="#aicontrol" class="nav-item" data-page="aicontrol">
+          <span class="nav-icon">✨</span>
+          <span>AI 控制</span>
+        </a>
+        <a href="#aiplanner" class="nav-item" data-page="aiplanner">
+          <span class="nav-icon">📅</span>
+          <span>AI 每日规划</span>
+        </a>
+        <a href="#music" class="nav-item" data-page="music">
+          <span class="nav-icon">🎵</span>
+          <span>音乐播放</span>
+        </a>
+        <a href="#library" class="nav-item" data-page="library">
+          <span class="nav-icon">🎧</span>
+          <span>音频库</span>
+        </a>
+        <a href="#schedules" class="nav-item" data-page="schedules">
+          <span class="nav-icon">⏰</span>
+          <span>定时任务</span>
+        </a>
+        <a href="#history" class="nav-item" data-page="history">
+          <span class="nav-icon">📋</span>
+          <span>历史记录</span>
+        </a>
+        <a href="#settings" class="nav-item" data-page="settings">
+          <span class="nav-icon">⚙️</span>
+          <span>系统设置</span>
+        </a>
+        <a href="#api" class="nav-item" data-page="api">
+          <span class="nav-icon">📡</span>
+          <span>API 文档</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="device-status">
+          <span class="status-dot" id="statusDot"></span>
+          <span id="deviceName">连接中...</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main">
+      <!-- 顶部栏 -->
+      <header class="header">
+        <h1 id="pageTitle">总览</h1>
+        <div class="header-actions">
+          <button class="btn btn-secondary" onclick="refreshData()">🔄 刷新</button>
+        </div>
+      </header>
+
+      <!-- 页面内容 -->
+      <div class="content">
+        <!-- 总览页面 -->
+        <div class="page active" id="page-dashboard">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon">📱</div>
+              <div class="stat-info">
+                <div class="stat-value" id="deviceCount">-</div>
+                <div class="stat-label">设备数量</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">⏰</div>
+              <div class="stat-info">
+                <div class="stat-value" id="scheduleCount">-</div>
+                <div class="stat-label">定时任务</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">💬</div>
+              <div class="stat-info">
+                <div class="stat-value" id="historyCount">-</div>
+                <div class="stat-label">对话记录</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>快速操作</h2>
+            <div class="quick-actions">
+              <button class="btn btn-primary btn-wake" onclick="wakeXiaoai()">👋 唤醒小爱</button>
+              <button class="btn btn-primary" onclick="showPage('tts')">🎙️ 发送语音</button>
+              <button class="btn btn-primary" onclick="showPage('ai')">🤖 AI 对话</button>
+              <button class="btn btn-primary" onclick="showPage('schedules')">⏰ 添加定时任务</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TTS 页面 -->
+        <div class="page" id="page-tts">
+          <div class="card">
+            <h2>语音播报</h2>
+            <p class="desc">输入文字，让小爱音箱播放出来</p>
+            <div class="form-group">
+              <textarea id="ttsText" rows="4" placeholder="请输入要播报的文字..."></textarea>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-primary" onclick="sendTTS()">🎙️ 立即播报</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI 页面 -->
+        <div class="page" id="page-ai">
+          <div class="card chat-card">
+            <h2>AI 对话</h2>
+            <p class="desc">与小爱音箱进行智能对话</p>
+            <div class="chat-container" id="chatContainer">
+              <div class="chat-welcome">
+                <div class="welcome-icon">🤖</div>
+                <p>你好！我是小爱音箱的 AI 助手</p>
+                <p class="welcome-hint">在下方输入问题，我会通过小爱音箱回答你</p>
+              </div>
+            </div>
+            <div class="chat-input-area">
+              <input type="text" id="aiInput" placeholder="输入问题..." onkeypress="if(event.key==='Enter')sendAI()">
+              <button class="btn btn-primary" onclick="sendAI()">发送</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI 控制页面 -->
+        <div class="page" id="page-aicontrol">
+          <div class="card chat-card">
+            <h2>🎙️ 智能广播系统</h2>
+            <p class="desc">用自然语言创建智能广播，AI 会根据您的需求生成合适的广播内容</p>
+            <div class="chat-container" id="aiControlContainer">
+              <div class="chat-welcome">
+                <div class="welcome-icon">🎙️</div>
+                <p>我是您的智能广播助手</p>
+                <p class="welcome-hint">告诉我您想广播什么，我会智能生成内容并播放</p>
+                <div class="command-examples">
+                  <p><strong>📢 广播示例：</strong></p>
+                  <p>• "播报今天的天气，晴朗25度"</p>
+                  <p>• "通知大家下午2点开会"</p>
+                  <p>• "提醒大家喝水，保持健康"</p>
+                  <p><strong>⏰ 定时广播示例：</strong></p>
+                  <p>• "明早7点叫我起床"</p>
+                  <p>• "每小时提醒大家站起来活动"</p>
+                  <p>• "每天早上8点播报天气"</p>
+                  <p><strong>🎵 音频+广播示例：</strong></p>
+                  <p>• "播放起床铃声"</p>
+                  <p>• "明早7点叫我起床并播放振奋音乐"</p>
+                </div>
+              </div>
+            </div>
+            <div class="chat-input-area">
+              <input type="text" id="aiControlInput" placeholder="输入广播需求..." onkeypress="if(event.key==='Enter')sendAIControl()">
+              <button class="btn btn-primary" onclick="sendAIControl()">发送</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI 每日规划页面 -->
+        <div class="page" id="page-aiplanner">
+          <div class="card">
+            <h2>📅 AI 每日规划</h2>
+            <p class="desc">AI 会根据天气、日期和自定义提示词智能生成第二天的通知计划</p>
+            
+            <!-- 配置区域 -->
+            <div class="card-header">
+              <h3>⚙️ 配置</h3>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>开启 AI 规划</label>
+                <input type="checkbox" id="aiPlannerEnabled" checked>
+              </div>
+              <div class="form-group">
+                <label>城市</label>
+                <input type="text" id="aiPlannerCity" placeholder="北京">
+              </div>
+              <div class="form-group">
+                <label>自动运行时间</label>
+                <input type="time" id="aiPlannerTime" value="22:00">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>生成天气任务</label>
+                <input type="checkbox" id="aiPlannerWeather" checked>
+              </div>
+              <div class="form-group">
+                <label>生成节日任务</label>
+                <input type="checkbox" id="aiPlannerHoliday" checked>
+              </div>
+              <div class="form-group">
+                <label>生成日常作息任务</label>
+                <input type="checkbox" id="aiPlannerRoutine" checked>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>
+                自定义提示词
+                <button type="button" class="btn-link" onclick="toggleSystemPromptEditor()" id="toggleSystemPromptBtn" title="展开/收起系统提示词编辑器">
+                  📋 编辑系统提示词
+                </button>
+              </label>
+              <textarea id="aiPlannerPrompt" rows="3" placeholder="添加一些额外的提示给 AI，例如：包含提醒家人的生日、重要会议..."></textarea>
+
+              <!-- 系统提示词编辑器（可折叠） -->
+              <div id="systemPromptEditorContainer" style="display: none; margin-top: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <div style="font-weight: 600; color: #4b5563; font-size: 13px;">🤖 系统提示词（影响AI生成质量）</div>
+                  <div style="display: flex; gap: 8px;">
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="resetSystemPrompt()" title="恢复为默认提示词">
+                      ↩️ 恢复默认
+                    </button>
+                    <button type="button" class="btn btn-primary btn-sm" onclick="saveSystemPrompt()" title="保存自定义提示词">
+                      💾 保存提示词
+                    </button>
+                  </div>
+                </div>
+                <textarea id="systemPromptEditor" rows="10" style="font-family: 'Monaco', 'Menlo', monospace; font-size: 12px; line-height: 1.5; background: #1e293b; color: #e2e8f0; border: 1px solid #334155; border-radius: 6px; padding: 12px; resize: vertical;" placeholder="在此编辑系统提示词..."></textarea>
+                <div style="margin-top: 6px; font-size: 11px; color: #9ca3af;">
+                  💡 提示：修改系统提示词会影响AI生成任务的风格、内容质量和时间安排。建议谨慎修改。
+                </div>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-primary" onclick="saveAiPlannerConfig()">💾 保存配置</button>
+            </div>
+          </div>
+
+          <!-- 生成区域 -->
+          <div class="card">
+            <div class="card-header">
+              <h3>🤖 生成计划</h3>
+            </div>
+            <p class="desc">选择时间范围，AI 将根据每天天气、节日智能生成通知计划</p>
+
+            <!-- 日期范围选择 -->
+            <div style="margin-bottom: 15px;">
+              <label style="font-weight: 500; margin-bottom: 8px; display: block;">📅 时间范围：</label>
+              <div style="display: flex; gap: 12px; align-items: center;">
+                <input type="date" id="planDateStart" onchange="onPlanDateChange()" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; cursor: pointer; flex: 1;">
+                <span style="color: #999;">至</span>
+                <input type="date" id="planDateEnd" onchange="onPlanDateChange()" style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; cursor: pointer; flex: 1;">
+              </div>
+              <p style="font-size: 12px; color: #888; margin-top: 6px;" id="planDateHint"></p>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" id="generatePlanBtn" onclick="generateAiPlanFromInput()">✨ 生成计划</button>
+            </div>
+
+            <!-- 生成结果 -->
+            <div id="planResult" style="margin-top: 20px; display: none;">
+              <div class="card-header">
+                <h3>📋 生成结果</h3>
+              </div>
+              <div id="planSummary" style="padding: 15px; background: #f5f7fa; border-radius: 8px; margin-bottom: 15px;"></div>
+              
+              <!-- 通知列表 -->
+              <h4>📢 通知列表</h4>
+              <div id="planNotifications"></div>
+              
+              <!-- 建议 -->
+              <div id="planSuggestions" style="margin-top: 15px;"></div>
+              
+              <!-- 应用按钮 -->
+              <div class="form-actions" style="margin-top: 15px;">
+                <button class="btn btn-success" onclick="applyAiPlan()">✅ 应用到定时任务</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 历史记录 -->
+          <div class="card">
+            <div class="card-header">
+              <h3>📜 历史记录</h3>
+            </div>
+            <div id="plannerHistory" class="history-list">
+              <div class="empty-state">暂无记录</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 音乐播放页面 -->
+        <div class="page" id="page-music">
+          <div class="card">
+            <h2>🎵 音乐播放</h2>
+            <p class="desc">控制小爱音箱播放音乐</p>
+
+            <!-- 搜索播放 -->
+            <div class="music-search">
+              <div class="form-group">
+                <input type="text" id="musicSearch" placeholder="搜索歌曲，例如：周杰伦 晴天">
+              </div>
+              <button class="btn btn-primary" onclick="playMusic()">🔍 搜索播放</button>
+            </div>
+
+            <!-- 播放控制 -->
+            <div class="music-controls">
+              <h3>播放控制</h3>
+              <div class="control-buttons">
+                <button class="btn btn-music" onclick="prevTrack()" title="上一首">⏮️</button>
+                <button class="btn btn-music btn-play" onclick="togglePlay()" id="playPauseBtn">▶️</button>
+                <button class="btn btn-music" onclick="nextTrack()" title="下一首">⏭️</button>
+              </div>
+              <div class="volume-control">
+                <span>🔈</span>
+                <input type="range" id="volumeSlider" min="0" max="100" value="50" onchange="setVolume(this.value)">
+                <span>🔊</span>
+                <span id="volumeValue">50%</span>
+              </div>
+            </div>
+
+            <!-- 快捷播放 -->
+            <div class="quick-play">
+              <h3>🎶 快捷播放</h3>
+              <div class="quick-buttons">
+                <button class="btn btn-secondary" onclick="playMusic('热门歌曲')">🔥 热门歌曲</button>
+                <button class="btn btn-secondary" onclick="playMusic('轻音乐')">🎹 轻音乐</button>
+                <button class="btn btn-secondary" onclick="playMusic('古典音乐')">🎻 古典音乐</button>
+                <button class="btn btn-secondary" onclick="playMusic('新闻')">📰 新闻</button>
+                <button class="btn btn-secondary" onclick="playMusic('相声')">🎭 相声</button>
+                <button class="btn btn-secondary" onclick="playMusic('儿童故事')">👶 儿童故事</button>
+              </div>
+            </div>
+
+            <!-- 播放状态 -->
+            <div class="music-status" id="musicStatus">
+              <p class="hint">点击上方按钮开始播放音乐</p>
+            </div>
+          </div>
+
+          <!-- 音频播放页面 -->
+          <div class="card">
+            <h2>🎧 音频播放</h2>
+            <p class="desc">播放指定的音频文件（支持 MP3、WAV 等格式）</p>
+            <div class="form-group">
+              <label>音频 URL</label>
+              <input type="text" id="audioUrl" placeholder="https://example.com/audio.mp3">
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-primary" onclick="playAudio()">▶️ 播放音频</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 音频库页面 -->
+        <div class="page" id="page-library">
+          <div class="card">
+            <h2>🎧 音频库</h2>
+            <p class="desc">管理您的音频文件库，随时快速播放</p>
+
+            <!-- 添加音频表单 -->
+            <div class="audio-add-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>音频名称</label>
+                  <input type="text" id="audioName" placeholder="例如：起床铃声">
+                </div>
+                <div class="form-group">
+                  <label>音频 URL</label>
+                  <input type="text" id="audioLibraryUrl" placeholder="https://example.com/audio.mp3">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>描述（可选）</label>
+                  <input type="text" id="audioDescription" placeholder="音频的简短描述">
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-primary" onclick="addAudio()">➕ 添加音频</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 音频列表 -->
+          <div class="card">
+            <h2>📚 音频列表</h2>
+            <div class="audio-list" id="audioList">
+              <div class="empty-state">暂无音频，请添加音频文件</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 定时任务页面 -->
+        <div class="page" id="page-schedules">
+          <div class="card">
+            <h2>定时任务</h2>
+            <p class="desc">设置定时让小爱音箱自动播报消息</p>
+
+            <!-- 添加任务表单 -->
+            <div class="schedule-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>任务类型</label>
+                  <select id="taskType" onchange="onTaskTypeChange()">
+                    <option value="text">文本播报</option>
+                    <option value="command">执行命令</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row" id="textTaskField">
+                <div class="form-group">
+                  <label>消息内容</label>
+                  <input type="text" id="scheduleText" placeholder="例如：该喝水了">
+                </div>
+              </div>
+              <div class="form-row hidden" id="commandTaskField">
+                <div class="form-group">
+                  <label>系统命令</label>
+                  <input type="text" id="scheduleCommand" placeholder="例如：echo hello world">
+                  <p class="hint">命令执行结果会作为语音播放，超时30秒</p>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>执行方式</label>
+                  <select id="scheduleType" onchange="onScheduleTypeChange()">
+                    <option value="cron">定时（Cron）</option>
+                    <option value="interval">间隔</option>
+                    <option value="once">一次性</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row" id="cronField">
+                <div class="form-group">
+                  <label>Cron 表达式 <a href="#" onclick="showCronHelp()" class="help-link">?</a></label>
+                  <input type="text" id="scheduleCron" placeholder="0 8 * * *" value="0 8 * * *">
+                </div>
+              </div>
+              <div class="form-row hidden" id="intervalField">
+                <div class="form-group">
+                  <label>间隔（秒）</label>
+                  <input type="number" id="scheduleInterval" placeholder="3600" value="3600">
+                </div>
+              </div>
+              <div class="form-row hidden" id="atField">
+                <div class="form-group">
+                  <label>执行时间</label>
+                  <input type="datetime-local" id="scheduleAt">
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-primary" onclick="addSchedule()">➕ 添加任务</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 任务列表 -->
+          <div class="card">
+            <h2>任务列表</h2>
+            <div class="schedule-list" id="scheduleList">
+              <div class="empty-state">暂无任务</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 历史记录页面 -->
+        <div class="page" id="page-history">
+          <div class="card">
+            <div class="card-header">
+              <h2>操作历史记录</h2>
+              <button class="btn btn-danger btn-sm" onclick="clearHistory()">🗑️ 清空记录</button>
+            </div>
+            <p class="desc">记录所有操作：语音播报、AI对话、定时任务执行等</p>
+            <div class="history-list" id="historyList">
+              <div class="empty-state">暂无历史记录</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 设置页面 -->
+        <div class="page" id="page-settings">
+          <div class="card">
+            <h2>AI 服务配置</h2>
+            <p class="desc">配置大模型 API 密钥和参数</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>API 密钥 <span class="required">*</span></label>
+                <input type="password" id="apiKey" placeholder="sk-xxxxxxxxxxxxxxxxxx">
+                <p class="hint">获取密钥：OpenAI / 通义千问 / Moonshot / DeepSeek</p>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>模型名称</label>
+                <input type="text" id="modelName" placeholder="gpt-4o-mini" value="gpt-4o-mini">
+              </div>
+              <div class="form-group">
+                <label>API 基础地址（可选）</label>
+                <input type="text" id="apiBaseUrl" placeholder="https://api.openai.com/v1">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>系统提示词（可选）</label>
+                <textarea id="systemPrompt" rows="3" placeholder="你是一个聪明的助手...">你是小爱音箱的智能助手，回答简洁有趣，适合语音播放，控制在100字以内。</textarea>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-primary" onclick="saveSettings()">💾 保存配置</button>
+              <button class="btn btn-secondary" onclick="loadSettings()">🔄 重置</button>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>小米账号配置</h2>
+            <p class="desc">当前配置的小米账号信息</p>
+            <div class="config-info">
+              <div class="config-item">
+                <span class="config-label">小米 ID:</span>
+                <span class="config-value">2259538958</span>
+              </div>
+              <div class="config-item">
+                <span class="config-label">设备 DID:</span>
+                <span class="config-value">89952946</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>使用帮助</h2>
+            <ul class="help-list">
+              <li><strong>获取 API 密钥：</strong></li>
+              <li>- OpenAI: <a href="https://platform.openai.com" target="_blank">platform.openai.com</a></li>
+              <li>- 通义千问: <a href="https://dashscope.aliyun.com" target="_blank">dashscope.aliyun.com</a></li>
+              <li>- Moonshot: <a href="https://platform.moonshot.cn" target="_blank">platform.moonshot.cn</a></li>
+              <li>- DeepSeek: <a href="https://platform.deepseek.com" target="_blank">platform.deepseek.com</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- API 文档页面 -->
+        <div class="page" id="page-api">
+          <div class="card">
+            <h2>API 接口文档</h2>
+            <p class="desc">以下是小爱音箱管理后台提供的所有 API 接口</p>
+
+            <div class="api-section">
+              <h3>基础信息</h3>
+              <div class="api-info">
+                <p><strong>基础地址:</strong> <code>http://localhost:3000</code></p>
+                <p><strong>Content-Type:</strong> <code>application/json</code></p>
+              </div>
+            </div>
+
+            <div class="api-section">
+              <h3>设备管理</h3>
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method get">GET</span>
+                  <span class="endpoint">/api/device</span>
+                </div>
+                <p class="api-desc">获取设备信息</p>
+                <div class="api-example">
+                  <strong>请求示例:</strong>
+                  <pre><code>curl http://localhost:3000/api/device</code></pre>
+                  <strong>响应示例:</strong>
+                  <pre><code>{
+  "success": true,
+  "data": {
+    "current": { "name": "小爱音箱mini", "miotDID": "89952946" },
+    "all": [...]
+  }
+}</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="api-section">
+              <h3>语音播报</h3>
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method post">POST</span>
+                  <span class="endpoint">/api/tts</span>
+                </div>
+                <p class="api-desc">发送文字让小爱音箱播放</p>
+                <div class="api-params">
+                  <strong>参数:</strong>
+                  <ul>
+                    <li><code>text</code> (string, 必填) - 要播报的文字</li>
+                  </ul>
+                </div>
+                <div class="api-example">
+                  <strong>请求示例:</strong>
+                  <pre><code>curl -X POST http://localhost:3000/api/tts \
+  -H "Content-Type: application/json" \
+  -d '{"text": "你好，这是一个测试"}'</code></pre>
+                  <strong>响应示例:</strong>
+                  <pre><code>{ "success": true, "data": { "code": 0 } }</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="api-section">
+              <h3>唤醒小爱</h3>
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method post">POST</span>
+                  <span class="endpoint">/api/wake</span>
+                </div>
+                <p class="api-desc">远程唤醒小爱音箱，让它进入聆听状态</p>
+                <div class="api-example">
+                  <strong>请求示例:</strong>
+                  <pre><code>curl -X POST http://localhost:3000/api/wake</code></pre>
+                  <strong>响应示例:</strong>
+                  <pre><code>{ "success": true, "data": { "code": 0 } }</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="api-section">
+              <h3>音乐播放</h3>
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method post">POST</span>
+                  <span class="endpoint">/api/music/play</span>
+                </div>
+                <p class="api-desc">搜索并播放音乐</p>
+                <div class="api-params">
+                  <strong>参数:</strong>
+                  <ul>
+                    <li><code>keyword</code> (string, 可选) - 搜索关键词</li>
+                  </ul>
+                </div>
+                <div class="api-example">
+                  <strong>请求示例:</strong>
+                  <pre><code>curl -X POST http://localhost:3000/api/music/play \
+  -H "Content-Type: application/json" \
+  -d '{"keyword": "周杰伦 晴天"}'</code></pre>
+                  <strong>响应示例:</strong>
+                  <pre><code>{ "success": true, "data": { "code": 0 } }</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="api-section">
+              <h3>音频播放</h3>
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method post">POST</span>
+                  <span class="endpoint">/api/audio/play</span>
+                </div>
+                <p class="api-desc">播放指定的音频文件 URL</p>
+                <div class="api-params">
+                  <strong>参数:</strong>
+                  <ul>
+                    <li><code>url</code> (string, 必填) - 音频文件 URL（支持 MP3、WAV 等格式）</li>
+                  </ul>
+                </div>
+                <div class="api-example">
+                  <strong>请求示例:</strong>
+                  <pre><code>curl -X POST http://localhost:3000/api/audio/play \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://example.com/music.mp3"}'</code></pre>
+                  <strong>响应示例:</strong>
+                  <pre><code>{ "success": true, "data": { "code": 0 } }</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="api-section">
+              <h3>🎙️ 智能广播</h3>
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method post">POST</span>
+                  <span class="endpoint">/api/ai/control</span>
+                </div>
+                <p class="api-desc">通过自然语言创建智能广播，AI 会根据需求生成合适的广播内容</p>
+                <div class="api-params">
+                  <strong>功能：</strong>
+                  <ul>
+                    <li>📢 即时广播 - 立即播放生成的广播内容</li>
+                    <li>⏰ 定时广播 - 创建定时广播任务</li>
+                    <li>🎵 音频播放 - 播放音频库的音频</li>
+                  </ul>
+                </div>
+                <div class="api-example">
+                  <strong>请求示例:</strong>
+                  <pre><code># 即时广播
+curl -X POST http://localhost:3000/api/ai/control \
+  -H "Content-Type: application/json" \
+  -d '{"command": "播报今天天气晴朗25度"}'
+
+# 定时广播
+curl -X POST http://localhost:3000/api/ai/control \
+  -H "Content-Type: application/json" \
+  -d '{"command": "明早7点叫我起床"}'
+
+# 播放音频
+curl -X POST http://localhost:3000/api/ai/control \
+  -H "Content-Type: application/json" \
+  -d '{"command": "播放起床铃声"}'</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="api-section">
+              <h3>🤖 AI 对话</h3>
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method post">POST</span>
+                  <span class="endpoint">/api/ai</span>
+                </div>
+                <p class="api-desc">调用大模型进行问答，支持上下文记忆</p>
+                <div class="api-params">
+                  <strong>参数:</strong>
+                  <ul>
+                    <li><code>question</code> (string, 必填) - 用户问题</li>
+                  </ul>
+                </div>
+                <div class="api-example">
+                  <strong>请求示例:</strong>
+                  <pre><code>curl -X POST http://localhost:3000/api/ai \
+  -H "Content-Type: application/json" \
+  -d '{"question": "地球为什么是圆的？"}'</code></pre>
+                  <strong>响应示例:</strong>
+                  <pre><code>{
+  "success": true,
+  "data": {
+    "question": "地球为什么是圆的？",
+    "answer": "地球之所以是圆的，是因为..."
+  }
+}</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="api-section">
+              <h3>定时任务</h3>
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method get">GET</span>
+                  <span class="endpoint">/api/schedules</span>
+                </div>
+                <p class="api-desc">获取所有定时任务列表</p>
+                <div class="api-example">
+                  <strong>请求示例:</strong>
+                  <pre><code>curl http://localhost:3000/api/schedules</code></pre>
+                </div>
+              </div>
+
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method post">POST</span>
+                  <span class="endpoint">/api/schedules</span>
+                </div>
+                <p class="api-desc">添加新的定时任务</p>
+                <div class="api-params">
+                  <strong>参数:</strong>
+                  <ul>
+                    <li><code>text</code> (string, 必填) - 消息内容</li>
+                    <li><code>type</code> (string, 必填) - 类型: cron/interval/once</li>
+                    <li><code>cron</code> (string) - Cron 表达式 (type=cron)</li>
+                    <li><code>interval</code> (number) - 间隔秒数 (type=interval)</li>
+                    <li><code>at</code> (string) - 执行时间 (type=once)</li>
+                  </ul>
+                </div>
+                <div class="api-example">
+                  <strong>请求示例 (Cron):</strong>
+                  <pre><code>curl -X POST http://localhost:3000/api/schedules \
+  -H "Content-Type: application/json" \
+  -d '{"text": "早上好", "type": "cron", "cron": "0 8 * * *"}'</code></pre>
+                  <strong>请求示例 (间隔):</strong>
+                  <pre><code>curl -X POST http://localhost:3000/api/schedules \
+  -H "Content-Type: application/json" \
+  -d '{"text": "该喝水了", "type": "interval", "interval": 3600}'</code></pre>
+                </div>
+              </div>
+
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method delete">DELETE</span>
+                  <span class="endpoint">/api/schedules/:id</span>
+                </div>
+                <p class="api-desc">删除指定的定时任务</p>
+                <div class="api-example">
+                  <strong>请求示例:</strong>
+                  <pre><code>curl -X DELETE http://localhost:3000/api/schedules/abc123</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="api-section">
+              <h3>对话历史</h3>
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method get">GET</span>
+                  <span class="endpoint">/api/history</span>
+                </div>
+                <p class="api-desc">获取 AI 对话历史记录</p>
+              </div>
+
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method delete">DELETE</span>
+                  <span class="endpoint">/api/history</span>
+                </div>
+                <p class="api-desc">清空对话历史记录</p>
+              </div>
+            </div>
+
+            <div class="api-section">
+              <h3>系统设置</h3>
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method get">GET</span>
+                  <span class="endpoint">/api/settings</span>
+                </div>
+                <p class="api-desc">获取当前系统设置</p>
+              </div>
+
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method post">POST</span>
+                  <span class="endpoint">/api/settings</span>
+                </div>
+                <p class="api-desc">保存系统设置</p>
+                <div class="api-params">
+                  <strong>参数:</strong>
+                  <ul>
+                    <li><code>apiKey</code> (string, 必填) - AI API 密钥</li>
+                    <li><code>modelName</code> (string) - 模型名称</li>
+                    <li><code>apiBaseUrl</code> (string) - API 基础地址</li>
+                    <li><code>systemPrompt</code> (string) - 系统提示词</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="api-section">
+              <h3>健康检查</h3>
+              <div class="api-item">
+                <div class="api-header">
+                  <span class="method get">GET</span>
+                  <span class="endpoint">/api/health</span>
+                </div>
+                <p class="api-desc">检查服务健康状态</p>
+                <div class="api-example">
+                  <strong>请求示例:</strong>
+                  <pre><code>curl http://localhost:3000/api/health</code></pre>
+                  <strong>响应示例:</strong>
+                  <pre><code>{ "success": true, "status": "ok" }</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast 提示 -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+  <script>
+    // 页面加载完成后初始化系统提示词编辑器
+    document.addEventListener('DOMContentLoaded', function() {
+      initSystemPromptEditor();
+      console.log('✅ [Init] 系统提示词编辑器已初始化');
+    });
+  </script>
+</body>
+</html>

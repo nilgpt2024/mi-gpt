@@ -1,0 +1,40 @@
+{
+  "audios": [
+    {
+      "id": "alarm-clock-1",
+      "name": "经典闹钟铃声",
+      "url": "https://www.soundjay.com/clock/sounds/alarm-clock-01.mp3",
+      "description": "经典的闹钟铃声，适合早上唤醒使用"
+    },
+    {
+      "id": "bird-sound",
+      "name": "鸟鸣声",
+      "url": "https://www.soundjay.com/nature/sounds/birds-02.mp3",
+      "description": "清晨的鸟鸣声，适合放松和唤醒"
+    },
+    {
+      "id": "doorbell",
+      "name": "门铃声",
+      "url": "https://www.soundjay.com/mechanical/sounds/doorbell-1.mp3",
+      "description": "清脆的门铃声"
+    },
+    {
+      "id": "notification",
+      "name": "通知提示音",
+      "url": "https://www.soundjay.com/button/sounds/button-09.mp3",
+      "description": "温和的通知提示音"
+    },
+    {
+      "id": "water-dripping",
+      "name": "滴水声",
+      "url": "https://www.soundjay.com/nature/sounds/water-dripping-2.mp3",
+      "description": "宁静的滴水声，适合放松"
+    },
+    {
+      "id": "morning-bell",
+      "name": "清晨钟声",
+      "url": "https://www.soundjay.com/bells/sounds/bells-1.mp3",
+      "description": "悠扬的钟声"
+    }
+  ]
+}
