@@ -267,7 +267,8 @@ async function init() {
       smartTaskGenerator = new SmartTaskGenerator(sessionManager, {
         goalManager,
         getWeatherFn: _getWeather,
-        getHolidayFn: _getSpecialEvents
+        getHolidayFn: _getSpecialEvents,
+        dynamicAdjusterOptions: { defaultCity: configuredCity }
       });
       console.log("🤖 智能任务生成器已初始化（统一AI入口）");
       
@@ -330,6 +331,7 @@ async function loadAIPlannerConfig() {
     city: "北京",
     address: "",
     customPrompt: "",
+    systemPrompt: "",  // 🔗 统一系统提示词字段
     generateWeatherTasks: true,
     generateHolidayTasks: true,
     generateDailyRoutine: true,
@@ -625,7 +627,7 @@ async function startAutoPlanner() {
       return;
     }
 
-    const autoRunAt = config.autoRunAt || "23:00";
+    const autoRunAt = config.time || config.autoRunAt || "22:00";
     console.log(`📅 [自动规划] 启动调度器，计划每天 ${autoRunAt} 自动生成明日计划`);
 
     _scheduleNextAutoRun(autoRunAt);
@@ -704,8 +706,11 @@ async function _executeAutoPlan(autoRunAt) {
     console.log(`📊 [自动规划] 发现 ${goals.length} 个活跃目标`);
 
     // 获取 AI 规划配置（自定义提示词）
+    // 优先级: 统一 systemPrompt > customPrompt (AI Planner 提示词框) > null(使用后端默认)
     const aiConfig = await loadAIPlannerConfig();
-    const customSystemPrompt = aiConfig.customPrompt || null;
+    const customSystemPrompt = aiConfig.systemPrompt || aiConfig.customPrompt || null;
+
+    let totalTasksCreated = 0;
 
     for (const goal of goals) {
       try {
@@ -721,8 +726,58 @@ async function _executeAutoPlan(autoRunAt) {
           forceRegenerate: true // 强制重新生成，覆盖已有计划
         });
 
-        if (result.success) {
+        if (result.success && result.data) {
           console.log(`   ✅ [自动规划] 目标 "${goal.title}" 计划生成成功`);
+
+          // 🔧 自动将生成的计划应用到定时任务
+          const planData = result.data;
+          const tasks = planData.tasks || (planData.plans ? planData.plans.flatMap(p => p.tasks || []) : []);
+
+          if (tasks.length > 0) {
+            let createdForGoal = 0;
+            const schedules = await loadSchedules();
+
+            // 🔧 清理：移除该目标+日期的旧自动规划任务（防重复 + 清理已过期的）
+            const beforeClean = schedules.length;
+            const filtered = schedules.filter(s => {
+              // 保留非自动规划来源的任务
+              if (s.source !== 'auto-planner') return true;
+              // 移除同一目标的旧任务（无论是否执行过）
+              if (s.goalId === goal.id) return false;
+              return true;
+            });
+
+            const removedCount = beforeClean - filtered.length;
+            if (removedCount > 0) {
+              console.log(`   🧹 [自动规划] 清理目标 "${goal.title}" 的 ${removedCount} 个旧任务`);
+            }
+
+            for (const task of tasks) {
+              if (!task.time || !task.content) continue;
+
+              const schedule = {
+                id: generateId(),
+                text: task.content,
+                taskType: "text",
+                type: "once",
+                at: `${tomorrow}T${task.time}:00`,
+                createdAt: new Date().toISOString(),
+                lastRun: null,
+                runCount: 0,
+                source: 'auto-planner',
+                goalId: goal.id,
+                goalTitle: goal.title
+              };
+
+              filtered.push(schedule);
+              createTimer(schedule);
+              createdForGoal++;
+            }
+
+            await saveSchedules(filtered);
+            totalTasksCreated += createdForGoal;
+            console.log(`   📋 [自动规划] 已为目标 "${goal.title}" 创建 ${createdForGoal} 个定时任务${removedCount > 0 ? `（已清理 ${removedCount} 个旧任务）` : ''}`);
+          }
         } else {
           console.log(`   ❌ [自动规划] 目标 "${goal.title}" 计划生成失败: ${result.replyToUser || '未知错误'}`);
         }
@@ -732,7 +787,12 @@ async function _executeAutoPlan(autoRunAt) {
     }
 
     console.log(`\n✅ [自动规划] ===== 自动生成完成 =====`);
-    console.log(`   📅 已为 ${goals.length} 个目标生成 ${tomorrow} 的计划\n`);
+    console.log(`   📅 已为 ${goals.length} 个目标生成 ${tomorrow} 的计划`);
+    if (totalTasksCreated > 0) {
+      console.log(`   ⏰ 共创建 ${totalTasksCreated} 个定时任务\n`);
+    } else {
+      console.log(`   ⚠️ 未创建任何定时任务（计划可能无任务或格式异常）\n`);
+    }
 
   } catch (error) {
     console.error(`❌ [自动规划] 自动执行失败:`, error.message);
@@ -1310,7 +1370,7 @@ const routes = {
         success: true,
         data: {
           enabled: config.enabled,
-          autoRunAt: config.autoRunAt || "23:00",
+          autoRunAt: config.time || config.autoRunAt || "22:00",
           isRunning: autoPlannerTimer !== null,
           city: config.city || "北京"
         }
@@ -1325,7 +1385,7 @@ const routes = {
     try {
       await init();
       const config = await loadAIPlannerConfig();
-      const autoRunAt = config.autoRunAt || "23:00";
+      const autoRunAt = config.time || config.autoRunAt || "22:00";
 
       // 异步执行，不阻塞响应
       _executeAutoPlan(autoRunAt).then(() => {
@@ -1367,8 +1427,6 @@ const routes = {
 
         // 应用用户自定义偏好
         if (preferences) {
-          if (preferences.tone) parsedGoal.config.tone = preferences.tone;
-          if (preferences.audience) parsedGoal.config.audience = preferences.audience;
           if (preferences.duration) parsedGoal.config.duration = preferences.duration;
           if (preferences.targetTime) parsedGoal.config.targetTime = preferences.targetTime;
         }

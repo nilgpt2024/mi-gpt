@@ -1,6 +1,111 @@
 {
   "logs": [
     {
+      "id": "mqc6gonc04zs6",
+      "type": "once",
+      "timestamp": "2026-06-13T09:53:21.096Z",
+      "scheduleId": "mq9kh2gkaaesy",
+      "text": "叮咚～ 第1天所有任务全部完成🎉 你已经迈出了30天旅程的第一步，太了不起啦！明天继续加油哦，晚安宝贝😴💤"
+    },
+    {
+      "id": "mqc6gon6ffaxi",
+      "type": "once",
+      "timestamp": "2026-06-13T09:53:21.090Z",
+      "scheduleId": "mq9kh2gjzhlkr",
+      "text": "读完故事啦！现在让牙膏泡泡把牙齿上的小细菌赶跑吧🦷💪 刷完就能听晚安故事咯，今天也是棒棒的一天！🌙"
+    },
+    {
+      "id": "mqc6gon4791bf",
+      "type": "once",
+      "timestamp": "2026-06-13T09:53:21.088Z",
+      "scheduleId": "mq9kh2gj39b3i",
+      "text": "天黑啦，挑一本最喜欢的绘本，和妈妈一起读吧📚 今天是阅读旅程的第一站，看看书里藏着什么小秘密呢？⭐"
+    },
+    {
+      "id": "mqc6gon2mz2rl",
+      "type": "once",
+      "timestamp": "2026-06-13T09:53:21.086Z",
+      "scheduleId": "mq9kh2geu7fxi",
+      "text": "刷完牙肚肚饿了吧？今天天气超好☀️，吃完早餐可以去外面玩一会儿，和小花小草说早安呀🌸"
+    },
+    {
+      "id": "mqc6gon0u6ma5",
+      "type": "once",
+      "timestamp": "2026-06-13T09:53:21.084Z",
+      "scheduleId": "mq9kh2g4x726a",
+      "text": "早上好小宝贝！新挑战开始啦🎉 今天是第1天哦！先帮牙齿洗个澡，把它们刷得闪闪亮吧～🪥✨"
+    },
+    {
+      "id": "mq9hlxy7wgfd6",
+      "type": "once",
+      "timestamp": "2026-06-11T12:42:03.679Z",
+      "scheduleId": "mq4z9kqgjq1sk",
+      "text": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴"
+    },
+    {
+      "id": "mq9hlxy470byi",
+      "type": "once",
+      "timestamp": "2026-06-11T12:42:03.676Z",
+      "scheduleId": "mq4z9kqb441gs",
+      "text": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨"
+    },
+    {
+      "id": "mq9hlxy2mbxpq",
+      "type": "once",
+      "timestamp": "2026-06-11T12:42:03.674Z",
+      "scheduleId": "mq4z9kq5uswlw",
+      "text": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉"
+    },
+    {
+      "id": "mq9hlxy0vz9i3",
+      "type": "once",
+      "timestamp": "2026-06-11T12:42:03.672Z",
+      "scheduleId": "mq4z9kpv7btfx",
+      "text": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨"
+    },
+    {
+      "id": "mq9hlxxyfw3e8",
+      "type": "once",
+      "timestamp": "2026-06-11T12:42:03.670Z",
+      "scheduleId": "mq4z9kpq4crni",
+      "text": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？"
+    },
+    {
+      "id": "mq9hlxxwsaqrm",
+      "type": "once",
+      "timestamp": "2026-06-11T12:42:03.668Z",
+      "scheduleId": "mq4z9kplmuu4i",
+      "text": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴"
+    },
+    {
+      "id": "mq9hlxxld8w26",
+      "type": "once",
+      "timestamp": "2026-06-11T12:42:03.657Z",
+      "scheduleId": "mq4z9kphfnpk4",
+      "text": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨"
+    },
+    {
+      "id": "mq9hlxxj2qwb8",
+      "type": "once",
+      "timestamp": "2026-06-11T12:42:03.655Z",
+      "scheduleId": "mq4z9kpchnxix",
+      "text": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉"
+    },
+    {
+      "id": "mq9hlxxg6y71a",
+      "type": "once",
+      "timestamp": "2026-06-11T12:42:03.652Z",
+      "scheduleId": "mq4z9kp13cpvi",
+      "text": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨"
+    },
+    {
+      "id": "mq9hlxxeg52tl",
+      "type": "once",
+      "timestamp": "2026-06-11T12:42:03.650Z",
+      "scheduleId": "mq4z9kogsowfg",
+      "text": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？"
+    },
+    {
       "id": "mq53n73fel97a",
       "type": "schedule_run",
       "timestamp": "2026-06-08T11:00:02.859Z",
@@ -84,5 +189,5 @@
       "text": "早上好呀小宝贝！第1天的奇妙旅程开始咯！我们一起伸个懒腰，喝口温水，准备迎接棒棒的一天吧～☀️"
     }
   ],
-  "lastUpdated": "2026-06-08T11:00:02.860Z"
+  "lastUpdated": "2026-06-13T09:53:21.096Z"
 }

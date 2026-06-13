@@ -30,32 +30,9 @@ const STORAGE_KEYS = {
 };
 
 /**
- * 系统默认提示词（与 dynamic-adjuster.mjs 中的 _buildSystemPrompt() 保持同步）
+ * 系统提示词由后端 dynamic-adjuster._buildSystemPrompt() 统一管理
+ * 前端仅负责用户自定义覆盖，未自定义时传 null 由后端使用默认值
  */
-const DEFAULT_SYSTEM_PROMPT = `你是一个智能生活管家的任务规划师。你的核心任务是**直接生成每日任务计划文件**。
-
-【工作方式】
-1. 分析目标和明日上下文
-2. 在 data/daily-plans/ 目录下创建符合Schema的JSON文件
-3. 用简短的语气回复确认
-
-【设计原则】
-- **个性化**: 根据天气、节日、进度动态调整内容
-- **合理性**: 任务时间要符合生活规律，不要过于密集或稀疏
-- **激励性**: 进度关键节点要加入鼓励话语
-- **安全性**: 下雨天不要安排户外活动
-
-【内容质量标准】
-- 每个任务的 content 字段必须是完整句子 (20-50字)
-- 适合儿童的语言风格（温馨、有趣、易懂）
-- 避免敏感词和负面表达
-- 合理使用 emoji 但不过度
-
-【时间安排原则】
-- 早上任务: 简洁有力，快速唤醒
-- 白天任务: 可以详细一些，引导活动
-- 晚上任务: 温馨舒缓，准备休息
-- 周末可以比工作日宽松15-30分钟`;
 
 /**
  * 切换系统提示词编辑器的显示/隐藏
@@ -94,9 +71,10 @@ function loadSystemPrompt() {
     editor.value = savedPrompt;
     console.log('✅ [SystemPrompt] 已加载自定义系统提示词');
   } else {
-    // 使用默认提示词
-    editor.value = DEFAULT_SYSTEM_PROMPT;
-    console.log('✅ [SystemPrompt] 已加载默认系统提示词');
+    // 未自定义时显示占位提示（实际使用后端 _buildSystemPrompt 默认值）
+    editor.value = '';
+    editor.placeholder = '未自定义，将使用后端默认系统提示词（含差异化规则等）';
+    console.log('✅ [SystemPrompt] 未检测到自定义提示词，将使用后端默认值');
   }
 }
 
@@ -118,9 +96,31 @@ function saveSystemPrompt() {
     localStorage.setItem(STORAGE_KEYS.SYSTEM_PROMPT, promptValue);
     showToast('✅ 系统提示词已保存！生成计划时将使用自定义版本', 'success');
     console.log('💾 [SystemPrompt] 自定义系统提示词已保存');
+
+    // 🔗 同步到配置文件，供自动运行使用（异步，不阻塞）
+    _syncSystemPromptToConfig(promptValue).catch(err => {
+      console.warn('⚠️ [SystemPrompt] 同步到配置文件失败（不影响本地保存）:', err.message);
+    });
   } catch (error) {
     console.error('❌ [SystemPrompt] 保存失败:', error);
     showToast('❌ 保存失败: ' + error.message, 'error');
+  }
+}
+
+/**
+ * 将系统提示词同步到 AI Planner 配置文件（供自动运行使用）
+ */
+async function _syncSystemPromptToConfig(promptValue) {
+  try {
+    const res = await api("/api/ai-planner/config");
+    if (res.success && res.data) {
+      const config = { ...res.data, systemPrompt: promptValue };
+      await api("/api/ai-planner/config", { method: "POST", body: JSON.stringify(config) });
+      console.log('🔗 [SystemPrompt] 已同步到配置文件（自动运行将生效）');
+    }
+  } catch (err) {
+    // 静默失败，已在上层 catch 处理
+    throw err;
   }
 }
 
@@ -132,17 +132,21 @@ function resetSystemPrompt() {
   if (!editor) return;
 
   if (confirm('确定要恢复为默认系统提示词吗？所有自定义修改将丢失。')) {
-    editor.value = DEFAULT_SYSTEM_PROMPT;
+    editor.value = '';
+    editor.placeholder = '未自定义，将使用后端默认系统提示词（含差异化规则等）';
     localStorage.removeItem(STORAGE_KEYS.SYSTEM_PROMPT);
 
-    showToast('↩️ 已恢复为默认系统提示词', 'info');
-    console.log('🔄 [SystemPrompt] 已重置为默认提示词');
+    showToast('↩️ 已恢复为后端默认系统提示词', 'info');
+    console.log('🔄 [SystemPrompt] 已重置为后端默认提示词');
+
+    // 🔗 同步清空到配置文件
+    _syncSystemPromptToConfig('').catch(() => {});
   }
 }
 
 /**
  * 获取当前系统提示词（供 generateAiPlan 使用）
- * @returns {string} 当前有效的系统提示词
+ * @returns {string|null} 用户自定义提示词，未自定义时返回 null（后端使用 _buildSystemPrompt 默认值）
  */
 function getSystemPrompt() {
   const savedPrompt = localStorage.getItem(STORAGE_KEYS.SYSTEM_PROMPT);
@@ -151,7 +155,8 @@ function getSystemPrompt() {
     return savedPrompt.trim();
   }
 
-  return DEFAULT_SYSTEM_PROMPT;
+  // 未自定义时返回 null，由后端 dynamic-adjuster._buildSystemPrompt() 提供默认值
+  return null;
 }
 
 /**
@@ -1165,6 +1170,8 @@ async function loadAiPlannerConfig() {
 }
 
 async function saveAiPlannerConfig() {
+  // 读取当前系统提示词（来自编辑器或 localStorage），统一写入配置文件
+  const currentSystemPrompt = getSystemPrompt();
   const config = {
     enabled: document.getElementById("aiPlannerEnabled").checked,
     city: document.getElementById("aiPlannerCity").value.trim(),
@@ -1172,7 +1179,9 @@ async function saveAiPlannerConfig() {
     weather: document.getElementById("aiPlannerWeather").checked,
     holiday: document.getElementById("aiPlannerHoliday").checked,
     routine: document.getElementById("aiPlannerRoutine").checked,
-    prompt: document.getElementById("aiPlannerPrompt").value.trim(),
+    prompt: document.getElementById("aiPlannerPrompt")?.value?.trim() || "",
+    // 🔗 统一：将前端系统提示词也写入配置文件，供自动运行使用
+    systemPrompt: currentSystemPrompt || ""
   };
 
   try {
@@ -1313,7 +1322,7 @@ async function generateAiPlan(dateRange = 'tomorrow') {
     const currentSystemPrompt = getSystemPrompt();
     const userPrompt = document.getElementById('aiPlannerPrompt')?.value?.trim() || '';
 
-    console.log(`📝 [generateAiPlan] 系统提示词长度: ${currentSystemPrompt.length} 字符`);
+    console.log(`📝 [generateAiPlan] 系统提示词: ${currentSystemPrompt ? '自定义(' + currentSystemPrompt.length + '字)' : '后端默认值'}`);
     console.log(`📝 [generateAiPlan] 目标天数: ${targetDates.length}, 日期: ${targetDates.join(', ')}`);
     if (userPrompt) {
       console.log(`📝 [generateAiPlan] 用户额外提示: ${userPrompt.substring(0, 50)}...`);

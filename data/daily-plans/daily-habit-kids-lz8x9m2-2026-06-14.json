@@ -1,0 +1,117 @@
+{
+  "goalId": "daily-habit-kids-lz8x9m2",
+  "date": "2026-06-14",
+  "dayNumber": 1,
+  "context": {
+    "weather": {
+      "weather": "晴",
+      "temp": "20°C",
+      "city": "合肥",
+      "tips": "天气晴好，适合户外活动，注意给孩子和老人适当防晒",
+      "feelsLike": "20°C",
+      "humidity": "未知",
+      "uvIndex": "未知",
+      "windSpeed": "未知",
+      "visibility": "未知"
+    },
+    "holiday": {
+      "weekday": "星期日",
+      "isWeekend": true,
+      "events": [
+        "周末"
+      ],
+      "isWorkday": false
+    },
+    "progress": {
+      "currentDay": 0,
+      "totalDays": 30,
+      "percentage": 0,
+      "streak": 0
+    }
+  },
+  "tasks": [
+    {
+      "time": "07:00",
+      "type": "reminder",
+      "title": "晨练健康提醒",
+      "content": "爷爷奶奶早上好，今天天气晴朗适合晨练，记得做一套八段锦活动筋骨，打完拳喝杯温水对身体好哦。",
+      "scheduleId": "sched-001"
+    },
+    {
+      "time": "07:30",
+      "type": "routine",
+      "title": "宝贝起床啦",
+      "content": "两个小宝贝快起床啦，太阳公公已经出来了，今天又是开心的一天，先喝口温水润润嗓子好不好呀。",
+      "scheduleId": "sched-002"
+    },
+    {
+      "time": "08:00",
+      "type": "meal",
+      "title": "全家早餐",
+      "content": "早餐时间到，有香喷喷的鸡蛋和热牛奶，小朋友要乖乖吃饭才能长高高，爷爷奶奶也要吃饱才有力气。",
+      "scheduleId": "sched-003"
+    },
+    {
+      "time": "09:00",
+      "type": "activity",
+      "title": "公园大冒险",
+      "content": "天气真好，全家一起去公园探险吧，看看有没有小蝴蝶和小蚂蚁，记得带上小水壶和遮阳帽。",
+      "scheduleId": "sched-004"
+    },
+    {
+      "time": "10:30",
+      "type": "activity",
+      "title": "趣味学习角",
+      "content": "回到家休息一下，一起来搭积木或者读绘本吧，看看谁能搭出最高的塔，谁找到书里藏的小动物。",
+      "scheduleId": "sched-005"
+    },
+    {
+      "time": "12:00",
+      "type": "meal",
+      "title": "午餐时间",
+      "content": "午饭时间到啦，今天有营养丰富的饭菜，小朋友要自己动手学吃饭，爷爷奶奶也要按时好好用餐。",
+      "scheduleId": "sched-006"
+    },
+    {
+      "time": "13:00",
+      "type": "routine",
+      "title": "午休充电",
+      "content": "吃完午饭要乖乖午睡哦，睡个香香的午觉下午才有力气继续玩，爷爷奶奶也躺下休息一会儿吧。",
+      "scheduleId": "sched-007"
+    },
+    {
+      "time": "15:00",
+      "type": "activity",
+      "title": "亲子手工坊",
+      "content": "下午好，一起来做手工吧，用彩纸折小动物或者画一幅手指画，比比看谁的作品最漂亮。",
+      "scheduleId": "sched-008"
+    },
+    {
+      "time": "18:00",
+      "type": "meal",
+      "title": "晚餐时光",
+      "content": "天快黑了，全家一起吃晚餐吧，提醒爷爷奶奶多吃蔬菜营养均衡，小朋友也要把碗里的饭吃完哦。",
+      "scheduleId": "sched-009"
+    },
+    {
+      "time": "20:00",
+      "type": "routine",
+      "title": "睡前故事",
+      "content": "洗好澡刷好牙，钻进被窝听故事啦，今天讲勇敢小兔子的故事，闭上眼睛准备睡觉，明天见宝贝们。",
+      "scheduleId": "sched-010"
+    }
+  ],
+  "adjustmentSummary": {
+    "totalAdjustments": 2,
+    "reasons": [
+      "weekend_relaxation",
+      "sumny_weather_outdoor"
+    ]
+  },
+  "metadata": {
+    "generatedAt": "2026-06-13T14:00:51.339Z",
+    "generatedBy": "opencode-extracted",
+    "model": "gpt-4o-mini",
+    "extractedFrom": "text-response"
+  }
+}

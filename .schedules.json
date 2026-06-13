@@ -1,102 +1,232 @@
 [
   {
-    "id": "mq4z9kogsowfg",
-    "text": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+    "id": "mqcfaz6m45gfu",
+    "text": "爷爷奶奶早上好，今天天气晴朗适合晨练，记得做一套八段锦活动筋骨，打完拳喝杯温水对身体好哦。",
     "taskType": "text",
     "type": "once",
-    "createdAt": "2026-06-08T08:57:28.816Z",
+    "at": "2026-06-14T07:00:00",
+    "createdAt": "2026-06-13T14:00:51.358Z",
     "lastRun": null,
     "runCount": 0,
-    "at": "2026-06-08T08:00:00"
+    "source": "auto-planner",
+    "goalId": "daily-habit-kids-lz8x9m2",
+    "goalTitle": "帮助小朋友培养每日阅读和刷牙习惯"
   },
   {
-    "id": "mq4z9kp13cpvi",
-    "text": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+    "id": "mqcfaz6r07dhw",
+    "text": "两个小宝贝快起床啦，太阳公公已经出来了，今天又是开心的一天，先喝口温水润润嗓子好不好呀。",
     "taskType": "text",
     "type": "once",
-    "createdAt": "2026-06-08T08:57:28.837Z",
+    "at": "2026-06-14T07:30:00",
+    "createdAt": "2026-06-13T14:00:51.363Z",
     "lastRun": null,
     "runCount": 0,
-    "at": "2026-06-08T16:30:00"
+    "source": "auto-planner",
+    "goalId": "daily-habit-kids-lz8x9m2",
+    "goalTitle": "帮助小朋友培养每日阅读和刷牙习惯"
   },
   {
-    "id": "mq4z9kpchnxix",
-    "text": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+    "id": "mqcfaz6sgt74p",
+    "text": "早餐时间到，有香喷喷的鸡蛋和热牛奶，小朋友要乖乖吃饭才能长高高，爷爷奶奶也要吃饱才有力气。",
     "taskType": "text",
     "type": "once",
-    "createdAt": "2026-06-08T08:57:28.848Z",
+    "at": "2026-06-14T08:00:00",
+    "createdAt": "2026-06-13T14:00:51.364Z",
     "lastRun": null,
     "runCount": 0,
-    "at": "2026-06-08T19:35:00"
+    "source": "auto-planner",
+    "goalId": "daily-habit-kids-lz8x9m2",
+    "goalTitle": "帮助小朋友培养每日阅读和刷牙习惯"
   },
   {
-    "id": "mq4z9kphfnpk4",
-    "text": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+    "id": "mqcfaz6tzguba",
+    "text": "天气真好，全家一起去公园探险吧，看看有没有小蝴蝶和小蚂蚁，记得带上小水壶和遮阳帽。",
     "taskType": "text",
     "type": "once",
-    "createdAt": "2026-06-08T08:57:28.853Z",
+    "at": "2026-06-14T09:00:00",
+    "createdAt": "2026-06-13T14:00:51.365Z",
     "lastRun": null,
     "runCount": 0,
-    "at": "2026-06-08T20:15:00"
+    "source": "auto-planner",
+    "goalId": "daily-habit-kids-lz8x9m2",
+    "goalTitle": "帮助小朋友培养每日阅读和刷牙习惯"
   },
   {
-    "id": "mq4z9kplmuu4i",
-    "text": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+    "id": "mqcfaz6tpr1fb",
+    "text": "回到家休息一下，一起来搭积木或者读绘本吧，看看谁能搭出最高的塔，谁找到书里藏的小动物。",
     "taskType": "text",
     "type": "once",
-    "createdAt": "2026-06-08T08:57:28.857Z",
+    "at": "2026-06-14T10:30:00",
+    "createdAt": "2026-06-13T14:00:51.365Z",
     "lastRun": null,
     "runCount": 0,
-    "at": "2026-06-08T20:40:00"
+    "source": "auto-planner",
+    "goalId": "daily-habit-kids-lz8x9m2",
+    "goalTitle": "帮助小朋友培养每日阅读和刷牙习惯"
   },
   {
-    "id": "mq4z9kpq4crni",
-    "text": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+    "id": "mqcfaz6uc4uid",
+    "text": "午饭时间到啦，今天有营养丰富的饭菜，小朋友要自己动手学吃饭，爷爷奶奶也要按时好好用餐。",
     "taskType": "text",
     "type": "once",
-    "createdAt": "2026-06-08T08:57:28.862Z",
+    "at": "2026-06-14T12:00:00",
+    "createdAt": "2026-06-13T14:00:51.366Z",
     "lastRun": null,
     "runCount": 0,
-    "at": "2026-06-08T08:00:00"
+    "source": "auto-planner",
+    "goalId": "daily-habit-kids-lz8x9m2",
+    "goalTitle": "帮助小朋友培养每日阅读和刷牙习惯"
   },
   {
-    "id": "mq4z9kpv7btfx",
-    "text": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+    "id": "mqcfaz6v4zyml",
+    "text": "吃完午饭要乖乖午睡哦，睡个香香的午觉下午才有力气继续玩，爷爷奶奶也躺下休息一会儿吧。",
     "taskType": "text",
     "type": "once",
-    "createdAt": "2026-06-08T08:57:28.867Z",
+    "at": "2026-06-14T13:00:00",
+    "createdAt": "2026-06-13T14:00:51.367Z",
     "lastRun": null,
     "runCount": 0,
-    "at": "2026-06-08T16:30:00"
+    "source": "auto-planner",
+    "goalId": "daily-habit-kids-lz8x9m2",
+    "goalTitle": "帮助小朋友培养每日阅读和刷牙习惯"
   },
   {
-    "id": "mq4z9kq5uswlw",
-    "text": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+    "id": "mqcfaz6x8s6s8",
+    "text": "下午好，一起来做手工吧，用彩纸折小动物或者画一幅手指画，比比看谁的作品最漂亮。",
     "taskType": "text",
     "type": "once",
-    "createdAt": "2026-06-08T08:57:28.877Z",
+    "at": "2026-06-14T15:00:00",
+    "createdAt": "2026-06-13T14:00:51.369Z",
     "lastRun": null,
     "runCount": 0,
-    "at": "2026-06-08T19:35:00"
+    "source": "auto-planner",
+    "goalId": "daily-habit-kids-lz8x9m2",
+    "goalTitle": "帮助小朋友培养每日阅读和刷牙习惯"
   },
   {
-    "id": "mq4z9kqb441gs",
-    "text": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+    "id": "mqcfaz6ycwbzs",
+    "text": "天快黑了，全家一起吃晚餐吧，提醒爷爷奶奶多吃蔬菜营养均衡，小朋友也要把碗里的饭吃完哦。",
     "taskType": "text",
     "type": "once",
-    "createdAt": "2026-06-08T08:57:28.883Z",
+    "at": "2026-06-14T18:00:00",
+    "createdAt": "2026-06-13T14:00:51.370Z",
     "lastRun": null,
     "runCount": 0,
-    "at": "2026-06-08T20:15:00"
+    "source": "auto-planner",
+    "goalId": "daily-habit-kids-lz8x9m2",
+    "goalTitle": "帮助小朋友培养每日阅读和刷牙习惯"
   },
   {
-    "id": "mq4z9kqgjq1sk",
-    "text": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+    "id": "mqcfaz6yj2k1q",
+    "text": "洗好澡刷好牙，钻进被窝听故事啦，今天讲勇敢小兔子的故事，闭上眼睛准备睡觉，明天见宝贝们。",
     "taskType": "text",
     "type": "once",
-    "createdAt": "2026-06-08T08:57:28.888Z",
+    "at": "2026-06-14T20:00:00",
+    "createdAt": "2026-06-13T14:00:51.370Z",
     "lastRun": null,
     "runCount": 0,
-    "at": "2026-06-08T20:40:00"
+    "source": "auto-planner",
+    "goalId": "daily-habit-kids-lz8x9m2",
+    "goalTitle": "帮助小朋友培养每日阅读和刷牙习惯"
+  },
+  {
+    "id": "mqcfc1gxzk43e",
+    "text": "爷爷奶奶早上好，今天天气晴朗适合晨练，记得做一套八段锦活动筋骨，打完拳喝杯温水对身体好哦。",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-13T14:01:40.977Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-14T07:00:00"
+  },
+  {
+    "id": "mqcfc1h3iyzp5",
+    "text": "两个小宝贝快起床啦，太阳公公已经出来了，今天又是开心的一天，先喝口温水润润嗓子好不好呀。",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-13T14:01:40.983Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-14T07:30:00"
+  },
+  {
+    "id": "mqcfc1hdc0uyc",
+    "text": "早餐时间到，有香喷喷的鸡蛋和热牛奶，小朋友要乖乖吃饭才能长高高，爷爷奶奶也要吃饱才有力气。",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-13T14:01:40.994Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-14T08:00:00"
+  },
+  {
+    "id": "mqcfc1hkzgmhp",
+    "text": "天气真好，全家一起去公园探险吧，看看有没有小蝴蝶和小蚂蚁，记得带上小水壶和遮阳帽。",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-13T14:01:41.000Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-14T09:00:00"
+  },
+  {
+    "id": "mqcfc1hpapa2c",
+    "text": "回到家休息一下，一起来搭积木或者读绘本吧，看看谁能搭出最高的塔，谁找到书里藏的小动物。",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-13T14:01:41.005Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-14T10:30:00"
+  },
+  {
+    "id": "mqcfc1hz156sr",
+    "text": "午饭时间到啦，今天有营养丰富的饭菜，小朋友要自己动手学吃饭，爷爷奶奶也要按时好好用餐。",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-13T14:01:41.015Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-14T12:00:00"
+  },
+  {
+    "id": "mqcfc1i51pohm",
+    "text": "吃完午饭要乖乖午睡哦，睡个香香的午觉下午才有力气继续玩，爷爷奶奶也躺下休息一会儿吧。",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-13T14:01:41.021Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-14T13:00:00"
+  },
+  {
+    "id": "mqcfc1iek8wac",
+    "text": "下午好，一起来做手工吧，用彩纸折小动物或者画一幅手指画，比比看谁的作品最漂亮。",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-13T14:01:41.030Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-14T15:00:00"
+  },
+  {
+    "id": "mqcfc1ijjcj55",
+    "text": "天快黑了，全家一起吃晚餐吧，提醒爷爷奶奶多吃蔬菜营养均衡，小朋友也要把碗里的饭吃完哦。",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-13T14:01:41.035Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-14T18:00:00"
+  },
+  {
+    "id": "mqcfc1ioudhdc",
+    "text": "洗好澡刷好牙，钻进被窝听故事啦，今天讲勇敢小兔子的故事，闭上眼睛准备睡觉，明天见宝贝们。",
+    "taskType": "text",
+    "type": "once",
+    "createdAt": "2026-06-13T14:01:41.040Z",
+    "lastRun": null,
+    "runCount": 0,
+    "at": "2026-06-14T20:00:00"
   }
 ]

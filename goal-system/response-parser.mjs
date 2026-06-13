@@ -127,11 +127,47 @@ export class ResponseParser {
       parts.push({ type: 'text', content });
     }
 
-    // 如果还是没有内容，尝试序列化
-    if (!content && response.rawResponse) {
-      content = typeof response.rawResponse === 'string' 
-        ? response.rawResponse 
-        : JSON.stringify(response.rawResponse);
+    // 从 rawResponse 补充内容（OpenCode 可能返回多 parts，content 只提取了 text 类型）
+    if (response.rawResponse) {
+      const raw = response.rawResponse;
+
+      // rawResponse 是对象时，检查是否有更多 parts 或更完整的内容
+      if (typeof raw === 'object' && raw !== null) {
+        // 检查 raw 中的 parts（可能包含非 text 类型的数据）
+        if (raw.parts && Array.isArray(raw.parts)) {
+          const allTextFromRaw = raw.parts
+            .filter(p => (p.type === 'text' || !p.type) && (p.text || p.content))
+            .map(p => p.text || p.content)
+            .join('\n');
+
+          // 如果 raw 的文本比当前 content 更长/更完整，使用 raw 的
+          if (allTextFromRaw.length > content.length) {
+            console.log(`📎 [ResponseParser] 从 rawResponse 补充内容 (${content} → ${allTextFromRaw.length} 字符)`);
+            content = allTextFromRaw;
+            parts = raw.parts.map(p => ({
+              type: p.type || 'unknown',
+              content: p.text || p.content || ''
+            }));
+          }
+        }
+
+        // 如果 content 看起来不包含JSON（没有代码块标记），尝试从 raw 中提取
+        if (content && !content.includes('```') && !content.includes('"tasks"')) {
+          const rawStr = typeof raw.content === 'string' ? raw.content : JSON.stringify(raw);
+          if (rawStr.length > content.length && (rawStr.includes('```') || rawStr.includes('"tasks"'))) {
+            console.log(`📎 [ResponseParser] content 无JSON，从 rawResponse 使用更长内容 (${content.length} → ${rawStr.length} 字符)`);
+            content = rawStr;
+          }
+        }
+      }
+
+      // 最终兜底：如果 content 仍然为空或很短，用 rawResponse 序列化
+      if (!content || content.length < 50) {
+        const fallbackContent = typeof raw === 'string' ? raw : JSON.stringify(raw);
+        if (fallbackContent.length > content.length) {
+          content = fallbackContent;
+        }
+      }
     }
 
     return {
@@ -212,6 +248,9 @@ export class ResponseParser {
     console.log(`📁 [ResponseParser] 扫描目录: ${directory}`);
 
     try {
+      // 方法0（优先）: 已知路径直接检查 — 从 prompt 内容中提取目标文件路径
+      const knownPathResult = await this._checkKnownFilePath(this._lastRawContent || '', directory);
+
       // 方法1: 快照对比法
       const snapshotResult = await this._scanBySnapshot(directory, context.beforeSnapshot);
 
@@ -221,8 +260,8 @@ export class ResponseParser {
         directory
       );
 
-      // 合并两种方法的结果
-      const allFiles = this._mergeFileDetections([snapshotResult, contentResult]);
+      // 合并所有方法的结果（已知路径优先）
+      const allFiles = this._mergeFileDetections([knownPathResult, snapshotResult, contentResult]);
 
       // 验证每个文件是否存在且有效
       const validatedFiles = [];
@@ -233,7 +272,8 @@ export class ResponseParser {
 
       return {
         files: validatedFiles.filter(f => f.exists),
-        scanMethod: snapshotResult.files?.length > 0 ? 'snapshot' : 'content-only',
+        scanMethod: knownPathResult.files?.length > 0 ? 'known-path' :
+                     snapshotResult.files?.length > 0 ? 'snapshot' : 'content-only',
         duration: snapshotResult.duration || 0
       };
 
@@ -241,6 +281,74 @@ export class ResponseParser {
       console.error(`❌ [ResponseParser] 文件检测失败:`, error.message);
       return { files: [], error: error.message };
     }
+  }
+
+  /**
+   * 从 prompt 内容中提取目标文件路径并直接检查
+   * 这是最可靠的方法：我们知道告诉 OpenCode 要生成哪个文件
+   */
+  async _checkKnownFilePath(content, baseDir) {
+    // 匹配 prompt 中的目标文件路径模式
+    const patterns = [
+      /\*{0,2}目标文件路径\*{0,2}:\s*([^\s\n]+\.json)/gi,
+      /目标文件[路径:]*\s*([^\s\n]+\.json)/gi,
+      /(?:保存到|写入|输出到|生成)\s*[:`]?\s*(data[\\/][^\s\n]+\.json)/gi,
+      /(`?data[\\/][^\s\n`]+\.json`?)/gi,
+    ];
+
+    const foundPaths = [];
+    for (const pattern of patterns) {
+      const matches = [...content.matchAll(pattern)];
+      for (const match of matches) {
+        let filePath = match[1] || match[0];
+        // 清理路径中的 markdown 标记
+        filePath = filePath.replace(/`/g, '').trim();
+        
+        // 转为绝对路径
+        const absolutePath = path.isAbsolute(filePath)
+          ? filePath
+          : path.join(process.cwd(), filePath);
+
+        foundPaths.push(absolutePath);
+      }
+    }
+
+    // 去重
+    const uniquePaths = [...new Set(foundPaths)];
+
+    if (uniquePaths.length === 0) {
+      return { files: [], method: 'known-path', duration: 0 };
+    }
+
+    console.log(`🎯 [ResponseParser] 检测到已知目标路径: ${uniquePaths.join(', ')}`);
+
+    // 直接检查每个路径是否存在
+    const existingFiles = [];
+    for (const filePath of uniquePaths) {
+      try {
+        if (await fs.pathExists(filePath)) {
+          const stat = await fs.stat(filePath);
+          existingFiles.push({
+            path: filePath,
+            filename: path.basename(filePath),
+            size: stat.size,
+            mtime: stat.mtime,
+            detectedBy: 'known-path'
+          });
+          console.log(`✅ [ResponseParser] 目标文件已存在: ${filePath} (${stat.size} bytes, ${stat.mtime.toISOString()})`);
+        } else {
+          console.log(`⏳ [ResponseParser] 目标文件尚未生成: ${filePath}`);
+        }
+      } catch (e) {
+        console.log(`⚠️ [ResponseParser] 检查文件失败: ${filePath} - ${e.message}`);
+      }
+    }
+
+    return {
+      files: existingFiles,
+      method: 'known-path',
+      duration: 0
+    };
   }
 
   async _scanBySnapshot(directory, beforeSnapshot) {

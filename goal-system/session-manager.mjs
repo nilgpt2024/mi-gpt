@@ -429,7 +429,8 @@ export class SessionManager {
     const response = await this.sendMessage(sessionId, parts, {
       model,
       temperature,
-      maxTokens: options.maxTokens || this.maxTokens
+      maxTokens: options.maxTokens || this.maxTokens,
+      systemPrompt
     });
 
     return {
@@ -437,7 +438,8 @@ export class SessionManager {
       sessionId: response.sessionId,
       model: response.model,
       usage: response.usage,
-      timestamp: response.timestamp
+      timestamp: response.timestamp,
+      rawResponse: response.rawResponse
     };
   }
 
@@ -494,7 +496,8 @@ export class SessionManager {
       model,
       temperature: options.temperature ?? this.temperature,
       maxTokens: options.maxTokens || this.maxTokens,
-      onChunk
+      onChunk,
+      systemPrompt
     });
 
     return response;

@@ -43,11 +43,28 @@ export class DynamicAdjuster {
   async dailyAdjustment(goalId, forceAdjustment = false, promptOptions = {}) {
     const { customSystemPrompt, customUserPrompt, targetDate: targetDateOption, dayOffset } = promptOptions || {};
 
+    // 如果调用方没传 systemPrompt，从配置文件读取
+    let systemPrompt = customSystemPrompt || null;
+    if (!systemPrompt) {
+      try {
+        const configPath = path.join(process.cwd(), '.ai-planner-config.json');
+        if (await fs.pathExists(configPath)) {
+          const aiConfig = await fs.readJson(configPath);
+          systemPrompt = aiConfig.systemPrompt || null;
+          if (systemPrompt) console.log(`📝 [DynamicAdjuster] 从配置文件加载系统提示词 (${systemPrompt.length}字符)`);
+        }
+      } catch (e) {
+        console.warn(`⚠️ [DynamicAdjuster] 加载配置失败: ${e.message}`);
+      }
+    }
+
     try {
       console.log(`\n${'='.repeat(60)}`);
       console.log(`🔄 [DynamicAdjuster v2.0] 开始调整目标: ${goalId}`);
-      if (customSystemPrompt) {
-        console.log(`📝 [DynamicAdjuster] 使用自定义系统提示词 (${customSystemPrompt.length}字符)`);
+      if (systemPrompt) {
+        console.log(`📝 [DynamicAdjuster] 使用系统提示词 (${systemPrompt.length}字符)`);
+      } else {
+        console.log(`⚠️ [DynamicAdjuster] 未设置系统提示词（使用模型默认行为）`);
       }
       if (customUserPrompt) {
         console.log(`💬 [DynamicAdjuster] 用户额外提示: ${customUserPrompt.substring(0, 50)}...`);
@@ -120,8 +137,7 @@ export class DynamicAdjuster {
       console.log(`📄 [DynamicAdjuster] 计划文件路径: ${planPath}`);
 
       // 使用迭代修正引擎生成计划文件
-      // ✅ 优先使用自定义系统提示词，否则使用默认值
-      const systemPrompt = customSystemPrompt || this._buildSystemPrompt();
+      // ✅ 使用 systemPrompt（优先调用方传入，其次从配置文件加载）
 
       // ✅ 如果有用户额外提示，追加到用户提示词末尾
       const dateLabel = targetDateOption === 'today' || targetDateOption === 'now' ? '今日' : '明日';
@@ -131,10 +147,15 @@ export class DynamicAdjuster {
         console.log(`💬 [DynamicAdjuster] 已追加用户额外提示到 Prompt`);
       }
 
+      // 将 systemPrompt 拼接到 userPrompt 开头，避免 session 传参丢失
+      if (systemPrompt) {
+        userPrompt = `[系统指令]\n${systemPrompt}\n\n---\n\n${userPrompt}`;
+        console.log(`📎 [DynamicAdjuster] systemPrompt 已拼接到 userPrompt 开头`);
+      }
+
       const result = await this.generator.generateWithValidation(
         {
           text: userPrompt,
-          systemPrompt: systemPrompt,
           model: this.modelName,
           goal,
           context,
@@ -299,24 +320,6 @@ export class DynamicAdjuster {
     const planPath = `data/daily-plans/${goal.id}-${targetDate}.json`;
 
     let prompt = `
-## 📋 任务：生成${dateLabel}计划 JSON
-
-**输出要求**: 请在回复中直接输出完整的 JSON 内容（用 \`\`\`json 代码块包裹），系统会自动保存到文件。
-
-**目标文件路径**: ${planPath}
-
----
-
-## 📋 当前目标信息
-
-- **标题**: ${goal.title}
-- **类型**: ${goal.type}
-- **第几天**: 第${context.progress.currentDay + 1}/${context.progress.totalDays}天
-- **进度**: ${context.progress.percentage.toFixed(1)}%
-- **连续天数**: ${context.progress.streak || 0}天
-- **语气风格**: ${goal.config.tone}
-- **目标受众**: ${goal.config.audience}
-
 ## 🌍 ${dateLabel}上下文
 
 ### 天气情况
@@ -330,46 +333,11 @@ ${context.weather.tips ? `- **提示**: ${context.weather.tips}` : ''}
 - **是否周末**: ${context.holiday.isWeekend ? '是 ✅' : '否'}
 - **特殊事件**: ${context.holiday.events?.length > 0 ? context.holiday.events.join(', ') : '无'}
 
-## 🔧 规则引擎建议 (${ruleBasedAdjustments.length}条)
 `;
-
-    if (ruleBasedAdjustments.length > 0) {
-      prompt += '\n';
-      ruleBasedAdjustments.forEach((adj, idx) => {
-        prompt += `${idx + 1}. **[${adj.type.toUpperCase()}]** ${adj.suggestion}`;
-        if (adj.priority) prompt += ` (优先级: ${adj.priority})`;
-        prompt += '\n';
-      });
-    } else {
-      prompt += '\n暂无特别调整建议，按常规流程生成。\n';
-    }
-
+ 
     prompt += `
-## 📝 任务要求
-
-**🔴 绝对禁止生成重复计划！** 你正在为第 ${context.progress.currentDay + 1} 天生成计划，必须与前后几天**完全不同**：
-
-### 标题必须不同（示例）
-- 第1天: "新挑战开始啦" → 第2天: "第二天继续加油" → 第3天: "已经坚持一半啦"
-- 不要连续两天用相同标题，每次换一种说法
-
-### 时间可以微调（示例）
-- 早上任务可以在 07:30~08:30 之间浮动
-- 晚间阅读可以在 18:30~19:30 之间浮动
-- 避免每天完全相同的时间点
-
-### 文案必须不同
-- **第1-3天**: 用"开始啦""第一天""新旅程"等起步话术
-- **第4-10天**: 用"坚持真棒""已经X天了""继续保持"
-- **第11天以后**: 用"快达成了""最后冲刺""胜利在望"
-
-### 内容差异化规则
-- **日期差异**: 周末 vs 工作日应有不同安排（周末更宽松、增加娱乐）
-- **进度变化**: 根据当前是第${context.progress.currentDay + 1}天调整话术
-- **天气适配**: ${context.weather?.weather || '晴'}天安排户外，雨天改为室内
-- **活动轮换**: 相同类型任务（刷牙/阅读）每天换一种具体活动或表达方式
-
-请生成 4-5 个任务，每个任务包含:
+## 📝 任务数据
+每个任务包含:
 
 \`\`\`json
 {
@@ -381,34 +349,12 @@ ${context.weather.tips ? `- **提示**: ${context.weather.tips}` : ''}
 }
 \`\`\`
 
-### 时间安排参考 (基于目标类型)
 `;
 
-    // 根据目标类型给出时间安排建议
-    switch (goal.type) {
-      case 'habit':
-        if (goal.title.includes('早起') || goal.title.includes('起床')) {
-          prompt += `- 07:00 起床提醒\n`;
-          prompt += `- 10:00 活动\n`;
-          prompt += `- 12:00/18:00 吃饭提醒\n`;
-          prompt += `- 21:00 睡觉提醒\n`;
-        } else if (goal.title.includes('阅读')) {
-          prompt += `- 19:00 开始阅读\n`;
-          prompt += `- 19:35 阅读完成\n`;
-        }
-        break;
-
-      default:
-        prompt += `- 根据目标的 targetTime (${goal.config.targetTime}) 安排主要任务\n`;
-        prompt += `- 在前后适当添加辅助任务\n`;
-    }
+    
 
     prompt += `
-### 内容风格要求
-- 温馨、鼓励、有童趣感
-- 适合小爱音箱 TTS 播报
-- 包含进度反馈 (如"第X天啦！""已经坚持X%了！")
-- 可使用 emoji 增加亲和力 ☀️ ⭐ 🎉 📚 🚲 ⚽
+
 
 ## ✅ 输出格式（必须严格遵守）
 
@@ -427,7 +373,7 @@ ${context.weather.tips ? `- **提示**: ${context.weather.tips}` : ''}
   },
 
   "tasks": [
-    // 4-5个任务对象
+    // 9-10个任务对象
   ],
 
   "adjustmentSummary": {
@@ -442,13 +388,6 @@ ${context.weather.tips ? `- **提示**: ${context.weather.tips}` : ''}
   }
 }
 \`\`\`
-
-## ⚠️ 重要提示
-
-1. **必须输出完整的 JSON 代码块**，不要省略任何字段
-2. JSON 必须符合上面的 Schema 格式
-3. tasks 数组包含 4-5 个任务，每个任务都要有 time, type, title, content
-4. 在 JSON 代码块后可以添加简短的确认文字
 
 ## 💬 回复示例
 
@@ -477,46 +416,7 @@ ${context.weather.tips ? `- **提示**: ${context.weather.tips}` : ''}
     return prompt;
   }
 
-  _buildSystemPrompt() {
-    return `
-你是一个智能生活管家的任务规划师。你的核心任务是**生成每日任务计划的 JSON 数据**。
-
-【工作方式 — 严格遵守】
-1. 分析用户提供的日期、天气、进度等上下文信息
-2. **直接在回复中输出一个完整的 JSON 代码块**（用 \`\`\`json 包裹）
-3. 不要输出其他内容，不要解释，不要创建文件，只输出 JSON
-
-【最重要的规则】
-- 你的回复必须且只能包含一个 \`\`\`json ... \`\`\` 代码块
-- 代码块内必须是完整的 JSON 对象，包含 goalId, date, tasks 等字段
-- tasks 数组中必须有 4-5 个任务对象，每个有 time, type, title, content
-- 如果不知道某些字段的值，也不要省略，用合理默认值填充
-
-【设计原则】
-- **个性化**: 根据天气、节日、进度动态调整内容
-- **合理性**: 任务时间要符合生活规律，不要过于密集或稀疏
-- **激励性**: 进度关键节点要加入鼓励话语
-- **安全性**: 下雨天不要安排户外活动
-
-【内容质量标准】
-- 每个任务的 content 字段必须是完整句子 (20-50字)
-- 适合儿童的语言风格（温馨、有趣、易懂）
-- 避免敏感词和负面表达
-- 合理使用 emoji 但不过度
-
-【时间安排原则】
-- 早上任务: 简洁有力，快速唤醒
-- 白天任务: 可以详细一些，引导活动
-- 晚上任务: 温馨舒缓，准备休息
-- 周末可以比工作日宽松15-30分钟
-
-【每日差异化原则 — 必须遵守】
-- **绝对不要**连续两天生成相同的任务列表
-- 根据当前是第几天调整话术：第1天用"开始啦"，中期用"坚持真棒"，后期用"快达成了"
-- 周末增加娱乐/户外时间，工作日侧重学习/习惯
-- 相同类型的任务（如刷牙、阅读）每天换一种表达方式
-`;
-  }
+  // System Prompt 由外部配置传入（.ai-planner-config.json），此处不再内置冗余默认值
 
   // ==================== 上下文收集 ====================
 
@@ -525,15 +425,42 @@ ${context.weather.tips ? `- **提示**: ${context.weather.tips}` : ''}
     let holiday = null;
 
     try {
-      weather = await this.getWeather(date, this.defaultCity);
-      console.log(`🌤️ [DynamicAdjuster] 天气: ${weather?.weather || '未知'} (${weather?.temp || '-'})`);
+      const weatherRaw = await this.getWeather(date, this.defaultCity);
+      // 兼容：确保天气对象包含所有必需字段
+      if (weatherRaw && typeof weatherRaw === 'object') {
+        weather = {
+          weather: weatherRaw.weather || '未知',
+          temp: weatherRaw.temp || '-',
+          city: weatherRaw.city || this.defaultCity || '未知',
+          tips: weatherRaw.tips || '',
+          ...weatherRaw  // 保留原始其他字段（humidity, uvIndex 等）
+        };
+      } else {
+        weather = { weather: '晴', temp: '20°C', city: this.defaultCity || '未知', tips: '' };
+      }
+      console.log(`🌤️ [DynamicAdjuster] 天气: ${weather?.weather} (${weather?.temp}) @ ${weather?.city}`);
     } catch (e) {
       console.warn(`⚠️ [DynamicAdjuster] 天气获取失败:`, e.message);
       weather = { weather: '晴', temp: '20°C', city: this.defaultCity, tips: '' };
     }
 
     try {
-      holiday = await this.getHoliday(date);
+      const holidayRaw = await this.getHoliday(date);
+      // 兼容：_getSpecialEvents 返回字符串数组，需要包装成标准格式
+      if (Array.isArray(holidayRaw)) {
+        holiday = {
+          weekday: this._getWeekday(date),
+          isWeekend: [0, 6].includes(date.getDay()),
+          events: holidayRaw,
+          isWorkday: ![0, 6].includes(date.getDay())
+        };
+      } else {
+        holiday = holidayRaw || {};
+        // 补充缺失字段
+        if (!holiday.weekday) holiday.weekday = this._getWeekday(date);
+        if (holiday.isWeekend === undefined) holiday.isWeekend = [0, 6].includes(date.getDay());
+        if (!holiday.events) holiday.events = [];
+      }
       console.log(`📅 [DynamicAdjuster] 日期: ${holiday?.weekday}, ${holiday?.isWeekend ? '周末' : '工作日'}, 事件: ${holiday?.events?.join(', ') || '无'}`);
     } catch (e) {
       console.warn(`⚠️ [DynamicAdjuster] 节日获取失败:`, e.message);

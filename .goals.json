@@ -6,8 +6,6 @@
       "type": "habit",
       "status": "in_progress",
       "config": {
-        "tone": "温馨鼓励",
-        "audience": "6岁儿童",
         "duration": 30,
         "targetTime": "08:00"
       },
@@ -21,8 +19,178 @@
       "updatedAt": "2026-06-07T00:00:00.000Z",
       "startDate": "2026-06-07T11:04:38.621Z",
       "endDate": "2026-07-07T11:04:38.621Z",
-      "nextReviewAt": "2026-06-07T14:00:00.000Z"
+      "nextReviewAt": "2026-06-07T14:00:00.000Z",
+      "adjustments": [
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        },
+        {
+          "type": "weekend",
+          "reason": "weekend_relaxation",
+          "effect": "time_flexible_30min",
+          "suggestion": "时间可适当宽松",
+          "priority": "medium",
+          "date": "2026-06-13"
+        }
+      ]
     }
   ],
-  "lastUpdated": "2026-06-07T11:04:38.622Z"
+  "lastUpdated": "2026-06-13T14:01:01.146Z"
 }

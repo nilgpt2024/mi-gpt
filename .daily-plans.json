@@ -421,11 +421,1164 @@
         "generatedBy": "fallback-rich-template",
         "note": "AI不可达，使用丰富降级模板 (Day 1/30, 3%)"
       }
+    },
+    {
+      "goalId": "daily-habit-kids-lz8x9m2",
+      "date": "2026-06-12",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "26°C",
+          "feelsLike": "25°C",
+          "humidity": "42%",
+          "uvIndex": "0 (低)",
+          "windSpeed": "17 km/h",
+          "visibility": "10 km",
+          "tips": "温度适宜，适合户外活动",
+          "city": "北京",
+          "cityEn": "beijing"
+        },
+        "holiday": [],
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 0,
+          "streak": 0
+        }
+      },
+      "tasks": [
+        {
+          "time": "07:45",
+          "type": "routine",
+          "title": "晨间刷牙小勇士",
+          "content": "早上好小宝贝！新挑战开始啦🎉 今天是第1天哦！先帮牙齿洗个澡，把它们刷得闪闪亮吧～🪥✨",
+          "scheduleId": "sched-001"
+        },
+        {
+          "time": "08:30",
+          "type": "meal",
+          "title": "营养早餐时间",
+          "content": "刷完牙肚肚饿了吧？今天天气超好☀️，吃完早餐可以去外面玩一会儿，和小花小草说早安呀🌸",
+          "scheduleId": "sched-002"
+        },
+        {
+          "time": "19:00",
+          "type": "routine",
+          "title": "晚间阅读时光",
+          "content": "天黑啦，挑一本最喜欢的绘本，和妈妈一起读吧📚 今天是阅读旅程的第一站，看看书里藏着什么小秘密呢？⭐",
+          "scheduleId": "sched-003"
+        },
+        {
+          "time": "19:35",
+          "type": "routine",
+          "title": "睡前刷牙仪式",
+          "content": "读完故事啦！现在让牙膏泡泡把牙齿上的小细菌赶跑吧🦷💪 刷完就能听晚安故事咯，今天也是棒棒的一天！🌙",
+          "scheduleId": "sched-004"
+        },
+        {
+          "time": "20:00",
+          "type": "reminder",
+          "title": "第一天打卡完成",
+          "content": "叮咚～ 第1天所有任务全部完成🎉 你已经迈出了30天旅程的第一步，太了不起啦！明天继续加油哦，晚安宝贝😴💤",
+          "scheduleId": "sched-005"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 0,
+        "reasons": []
+      },
+      "metadata": {
+        "generatedAt": "2026-06-11T14:02:15.028Z",
+        "generatedBy": "opencode-extracted",
+        "model": "gpt-4o-mini",
+        "extractedFrom": "text-response"
+      }
+    },
+    {
+      "goalId": "goal-fallback-1781268988276",
+      "date": "2026-06-13",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "25°C",
+          "city": "本地"
+        },
+        "holiday": {
+          "weekday": "星期六",
+          "isWeekend": true,
+          "events": []
+        },
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 3
+        }
+      },
+      "tasks": [
+        {
+          "time": "08:00",
+          "type": "reminder",
+          "title": "起床提醒",
+          "content": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+          "scheduleId": "sched-fb-1781268988276-1"
+        },
+        {
+          "time": "16:00",
+          "type": "activity",
+          "title": "挑选绘本",
+          "content": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+          "scheduleId": "sched-fb-1781268988276-2"
+        },
+        {
+          "time": "19:00",
+          "type": "routine",
+          "title": "亲子阅读时间",
+          "content": "阅读时间到！🎉 和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+          "scheduleId": "sched-fb-1781268988276-3"
+        },
+        {
+          "time": "19:25",
+          "type": "routine",
+          "title": "阅读分享",
+          "content": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+          "scheduleId": "sched-fb-1781268988276-4"
+        },
+        {
+          "time": "20:10",
+          "type": "routine",
+          "title": "刷牙小卫士",
+          "content": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+          "scheduleId": "sched-fb-1781268988276-5"
+        },
+        {
+          "time": "20:35",
+          "type": "reminder",
+          "title": "睡前晚安 & 打卡完成",
+          "content": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+          "scheduleId": "sched-fb-1781268988276-6"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 0,
+        "reasons": []
+      },
+      "metadata": {
+        "generatedBy": "fallback-rich-template",
+        "note": "AI不可达，使用丰富降级模板 (Day 1/30, 3%)"
+      }
+    },
+    {
+      "goalId": "goal-fallback-1781270970874",
+      "date": "2026-06-13",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "25°C",
+          "city": "本地"
+        },
+        "holiday": {
+          "weekday": "星期六",
+          "isWeekend": true,
+          "events": []
+        },
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 3
+        }
+      },
+      "tasks": [
+        {
+          "time": "08:00",
+          "type": "reminder",
+          "title": "起床提醒",
+          "content": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+          "scheduleId": "sched-fb-1781270970874-1"
+        },
+        {
+          "time": "16:00",
+          "type": "activity",
+          "title": "挑选绘本",
+          "content": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+          "scheduleId": "sched-fb-1781270970874-2"
+        },
+        {
+          "time": "19:00",
+          "type": "routine",
+          "title": "亲子阅读时间",
+          "content": "阅读时间到！🎉 和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+          "scheduleId": "sched-fb-1781270970874-3"
+        },
+        {
+          "time": "19:25",
+          "type": "routine",
+          "title": "阅读分享",
+          "content": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+          "scheduleId": "sched-fb-1781270970874-4"
+        },
+        {
+          "time": "20:10",
+          "type": "routine",
+          "title": "刷牙小卫士",
+          "content": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+          "scheduleId": "sched-fb-1781270970874-5"
+        },
+        {
+          "time": "20:35",
+          "type": "reminder",
+          "title": "睡前晚安 & 打卡完成",
+          "content": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+          "scheduleId": "sched-fb-1781270970874-6"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 0,
+        "reasons": []
+      },
+      "metadata": {
+        "generatedBy": "fallback-rich-template",
+        "note": "AI不可达，使用丰富降级模板 (Day 1/30, 3%)"
+      }
+    },
+    {
+      "goalId": "daily-habit-kids-lz8x9m2",
+      "date": "2026-06-13",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "24°C",
+          "feelsLike": "25°C",
+          "humidity": "74%",
+          "uvIndex": "0 (低)",
+          "windSpeed": "12 km/h",
+          "visibility": "10 km",
+          "tips": "温度适宜，适合户外活动",
+          "city": "北京",
+          "cityEn": "beijing"
+        },
+        "holiday": [
+          "周末"
+        ],
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 0,
+          "streak": 0
+        }
+      },
+      "tasks": [
+        {
+          "time": "08:00",
+          "type": "routine",
+          "title": "刷牙小勇士",
+          "content": "早上好小勇士！第1天开始啦！快来把牙齿刷得白白的，像小珍珠一样闪闪发光～🦷✨",
+          "scheduleId": "sched-001"
+        },
+        {
+          "time": "15:00",
+          "type": "reminder",
+          "title": "阅读小提醒",
+          "content": "叮咚～小书迷时间到！今天想看哪本绘本呢？选一本最爱的，等晚上我们一起读哦！📚",
+          "scheduleId": "sched-002"
+        },
+        {
+          "time": "19:00",
+          "type": "activity",
+          "title": "一起读绘本",
+          "content": "宝贝，阅读时间到啦！今天是第1天，拿出你选好的绘本，让我们一起走进故事的世界吧！读完后你会变得更聪明哦～🌟",
+          "scheduleId": "sched-003"
+        },
+        {
+          "time": "19:35",
+          "type": "activity",
+          "title": "阅读完成",
+          "content": "太棒啦！你已经完成了第1天的阅读任务，已经坚持0%啦！每一天的积累都会让你变得更棒，继续加油！🎉📖",
+          "scheduleId": "sched-004"
+        },
+        {
+          "time": "21:00",
+          "type": "routine",
+          "title": "睡前刷牙",
+          "content": "月亮姐姐出来了，小牙齿也要晚安啦！来把牙虫赶跑，做个香喷喷的好梦。明天早上我们继续坚持哦～🌙🦷💤",
+          "scheduleId": "sched-005"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 0,
+        "reasons": []
+      },
+      "metadata": {
+        "generatedAt": "2026-06-12T14:03:18.505Z",
+        "generatedBy": "opencode-extracted",
+        "model": "gpt-4o-mini",
+        "extractedFrom": "text-response"
+      }
+    },
+    {
+      "goalId": "goal-fallback-1781338117410",
+      "date": "2026-06-14",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "25°C",
+          "city": "本地"
+        },
+        "holiday": {
+          "weekday": "星期日",
+          "isWeekend": true,
+          "events": []
+        },
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 3
+        }
+      },
+      "tasks": [
+        {
+          "time": "08:00",
+          "type": "reminder",
+          "title": "起床提醒",
+          "content": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+          "scheduleId": "sched-fb-1781338117410-1"
+        },
+        {
+          "time": "16:00",
+          "type": "activity",
+          "title": "挑选绘本",
+          "content": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+          "scheduleId": "sched-fb-1781338117410-2"
+        },
+        {
+          "time": "19:00",
+          "type": "routine",
+          "title": "亲子阅读时间",
+          "content": "阅读时间到！🎉 和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+          "scheduleId": "sched-fb-1781338117410-3"
+        },
+        {
+          "time": "19:25",
+          "type": "routine",
+          "title": "阅读分享",
+          "content": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+          "scheduleId": "sched-fb-1781338117410-4"
+        },
+        {
+          "time": "20:10",
+          "type": "routine",
+          "title": "刷牙小卫士",
+          "content": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+          "scheduleId": "sched-fb-1781338117410-5"
+        },
+        {
+          "time": "20:35",
+          "type": "reminder",
+          "title": "睡前晚安 & 打卡完成",
+          "content": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+          "scheduleId": "sched-fb-1781338117410-6"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 0,
+        "reasons": []
+      },
+      "metadata": {
+        "generatedBy": "fallback-rich-template",
+        "note": "AI不可达，使用丰富降级模板 (Day 1/30, 3%)"
+      }
+    },
+    {
+      "goalId": "goal-fallback-1781339381281",
+      "date": "2026-06-14",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "25°C",
+          "city": "本地"
+        },
+        "holiday": {
+          "weekday": "星期日",
+          "isWeekend": true,
+          "events": []
+        },
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 3
+        }
+      },
+      "tasks": [
+        {
+          "time": "08:00",
+          "type": "reminder",
+          "title": "起床提醒",
+          "content": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+          "scheduleId": "sched-fb-1781339381281-1"
+        },
+        {
+          "time": "16:00",
+          "type": "activity",
+          "title": "挑选绘本",
+          "content": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+          "scheduleId": "sched-fb-1781339381281-2"
+        },
+        {
+          "time": "19:00",
+          "type": "routine",
+          "title": "亲子阅读时间",
+          "content": "阅读时间到！🎉 和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+          "scheduleId": "sched-fb-1781339381281-3"
+        },
+        {
+          "time": "19:25",
+          "type": "routine",
+          "title": "阅读分享",
+          "content": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+          "scheduleId": "sched-fb-1781339381281-4"
+        },
+        {
+          "time": "20:10",
+          "type": "routine",
+          "title": "刷牙小卫士",
+          "content": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+          "scheduleId": "sched-fb-1781339381281-5"
+        },
+        {
+          "time": "20:35",
+          "type": "reminder",
+          "title": "睡前晚安 & 打卡完成",
+          "content": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+          "scheduleId": "sched-fb-1781339381281-6"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 0,
+        "reasons": []
+      },
+      "metadata": {
+        "generatedBy": "fallback-rich-template",
+        "note": "AI不可达，使用丰富降级模板 (Day 1/30, 3%)"
+      }
+    },
+    {
+      "goalId": "goal-fallback-1781341400953",
+      "date": "2026-06-14",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "25°C",
+          "city": "本地"
+        },
+        "holiday": {
+          "weekday": "星期日",
+          "isWeekend": true,
+          "events": []
+        },
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 3
+        }
+      },
+      "tasks": [
+        {
+          "time": "08:00",
+          "type": "reminder",
+          "title": "起床提醒",
+          "content": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+          "scheduleId": "sched-fb-1781341400953-1"
+        },
+        {
+          "time": "16:00",
+          "type": "activity",
+          "title": "挑选绘本",
+          "content": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+          "scheduleId": "sched-fb-1781341400953-2"
+        },
+        {
+          "time": "19:00",
+          "type": "routine",
+          "title": "亲子阅读时间",
+          "content": "阅读时间到！🎉 和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+          "scheduleId": "sched-fb-1781341400953-3"
+        },
+        {
+          "time": "19:25",
+          "type": "routine",
+          "title": "阅读分享",
+          "content": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+          "scheduleId": "sched-fb-1781341400953-4"
+        },
+        {
+          "time": "20:10",
+          "type": "routine",
+          "title": "刷牙小卫士",
+          "content": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+          "scheduleId": "sched-fb-1781341400953-5"
+        },
+        {
+          "time": "20:35",
+          "type": "reminder",
+          "title": "睡前晚安 & 打卡完成",
+          "content": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+          "scheduleId": "sched-fb-1781341400953-6"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 0,
+        "reasons": []
+      },
+      "metadata": {
+        "generatedBy": "fallback-rich-template",
+        "note": "AI不可达，使用丰富降级模板 (Day 1/30, 3%)"
+      }
+    },
+    {
+      "goalId": "goal-fallback-1781342568744",
+      "date": "2026-06-14",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "25°C",
+          "city": "本地"
+        },
+        "holiday": {
+          "weekday": "星期日",
+          "isWeekend": true,
+          "events": []
+        },
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 3
+        }
+      },
+      "tasks": [
+        {
+          "time": "08:00",
+          "type": "reminder",
+          "title": "起床提醒",
+          "content": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+          "scheduleId": "sched-fb-1781342568744-1"
+        },
+        {
+          "time": "16:00",
+          "type": "activity",
+          "title": "挑选绘本",
+          "content": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+          "scheduleId": "sched-fb-1781342568744-2"
+        },
+        {
+          "time": "19:00",
+          "type": "routine",
+          "title": "亲子阅读时间",
+          "content": "阅读时间到！🎉 和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+          "scheduleId": "sched-fb-1781342568744-3"
+        },
+        {
+          "time": "19:25",
+          "type": "routine",
+          "title": "阅读分享",
+          "content": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+          "scheduleId": "sched-fb-1781342568744-4"
+        },
+        {
+          "time": "20:10",
+          "type": "routine",
+          "title": "刷牙小卫士",
+          "content": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+          "scheduleId": "sched-fb-1781342568744-5"
+        },
+        {
+          "time": "20:35",
+          "type": "reminder",
+          "title": "睡前晚安 & 打卡完成",
+          "content": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+          "scheduleId": "sched-fb-1781342568744-6"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 0,
+        "reasons": []
+      },
+      "metadata": {
+        "generatedBy": "fallback-rich-template",
+        "note": "AI不可达，使用丰富降级模板 (Day 1/30, 3%)"
+      }
+    },
+    {
+      "goalId": "daily-habit-kids-lz8x9m2",
+      "date": "2026-06-14",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "20°C",
+          "city": "合肥",
+          "tips": "天气晴好，适合户外活动，注意给孩子和老人适当防晒",
+          "feelsLike": "20°C",
+          "humidity": "未知",
+          "uvIndex": "未知",
+          "windSpeed": "未知",
+          "visibility": "未知"
+        },
+        "holiday": {
+          "weekday": "星期日",
+          "isWeekend": true,
+          "events": [
+            "周末"
+          ],
+          "isWorkday": false
+        },
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 0,
+          "streak": 0
+        }
+      },
+      "tasks": [
+        {
+          "time": "07:00",
+          "type": "reminder",
+          "title": "晨练健康提醒",
+          "content": "爷爷奶奶早上好，今天天气晴朗适合晨练，记得做一套八段锦活动筋骨，打完拳喝杯温水对身体好哦。",
+          "scheduleId": "sched-001"
+        },
+        {
+          "time": "07:30",
+          "type": "routine",
+          "title": "宝贝起床啦",
+          "content": "两个小宝贝快起床啦，太阳公公已经出来了，今天又是开心的一天，先喝口温水润润嗓子好不好呀。",
+          "scheduleId": "sched-002"
+        },
+        {
+          "time": "08:00",
+          "type": "meal",
+          "title": "全家早餐",
+          "content": "早餐时间到，有香喷喷的鸡蛋和热牛奶，小朋友要乖乖吃饭才能长高高，爷爷奶奶也要吃饱才有力气。",
+          "scheduleId": "sched-003"
+        },
+        {
+          "time": "09:00",
+          "type": "activity",
+          "title": "公园大冒险",
+          "content": "天气真好，全家一起去公园探险吧，看看有没有小蝴蝶和小蚂蚁，记得带上小水壶和遮阳帽。",
+          "scheduleId": "sched-004"
+        },
+        {
+          "time": "10:30",
+          "type": "activity",
+          "title": "趣味学习角",
+          "content": "回到家休息一下，一起来搭积木或者读绘本吧，看看谁能搭出最高的塔，谁找到书里藏的小动物。",
+          "scheduleId": "sched-005"
+        },
+        {
+          "time": "12:00",
+          "type": "meal",
+          "title": "午餐时间",
+          "content": "午饭时间到啦，今天有营养丰富的饭菜，小朋友要自己动手学吃饭，爷爷奶奶也要按时好好用餐。",
+          "scheduleId": "sched-006"
+        },
+        {
+          "time": "13:00",
+          "type": "routine",
+          "title": "午休充电",
+          "content": "吃完午饭要乖乖午睡哦，睡个香香的午觉下午才有力气继续玩，爷爷奶奶也躺下休息一会儿吧。",
+          "scheduleId": "sched-007"
+        },
+        {
+          "time": "15:00",
+          "type": "activity",
+          "title": "亲子手工坊",
+          "content": "下午好，一起来做手工吧，用彩纸折小动物或者画一幅手指画，比比看谁的作品最漂亮。",
+          "scheduleId": "sched-008"
+        },
+        {
+          "time": "18:00",
+          "type": "meal",
+          "title": "晚餐时光",
+          "content": "天快黑了，全家一起吃晚餐吧，提醒爷爷奶奶多吃蔬菜营养均衡，小朋友也要把碗里的饭吃完哦。",
+          "scheduleId": "sched-009"
+        },
+        {
+          "time": "20:00",
+          "type": "routine",
+          "title": "睡前故事",
+          "content": "洗好澡刷好牙，钻进被窝听故事啦，今天讲勇敢小兔子的故事，闭上眼睛准备睡觉，明天见宝贝们。",
+          "scheduleId": "sched-010"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 2,
+        "reasons": [
+          "weekend_relaxation",
+          "sumny_weather_outdoor"
+        ]
+      },
+      "metadata": {
+        "generatedAt": "2026-06-13T14:00:51.339Z",
+        "generatedBy": "opencode-extracted",
+        "model": "gpt-4o-mini",
+        "extractedFrom": "text-response"
+      }
+    },
+    {
+      "goalId": "goal-fallback-1781345027749",
+      "date": "2026-06-14",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "25°C",
+          "city": "本地"
+        },
+        "holiday": {
+          "weekday": "星期日",
+          "isWeekend": true,
+          "events": []
+        },
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 3
+        }
+      },
+      "tasks": [
+        {
+          "time": "08:00",
+          "type": "reminder",
+          "title": "起床提醒",
+          "content": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+          "scheduleId": "sched-fb-1781345027749-1"
+        },
+        {
+          "time": "16:00",
+          "type": "activity",
+          "title": "挑选绘本",
+          "content": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+          "scheduleId": "sched-fb-1781345027749-2"
+        },
+        {
+          "time": "19:00",
+          "type": "routine",
+          "title": "亲子阅读时间",
+          "content": "阅读时间到！🎉 和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+          "scheduleId": "sched-fb-1781345027749-3"
+        },
+        {
+          "time": "19:25",
+          "type": "routine",
+          "title": "阅读分享",
+          "content": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+          "scheduleId": "sched-fb-1781345027749-4"
+        },
+        {
+          "time": "20:10",
+          "type": "routine",
+          "title": "刷牙小卫士",
+          "content": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+          "scheduleId": "sched-fb-1781345027749-5"
+        },
+        {
+          "time": "20:35",
+          "type": "reminder",
+          "title": "睡前晚安 & 打卡完成",
+          "content": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+          "scheduleId": "sched-fb-1781345027749-6"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 0,
+        "reasons": []
+      },
+      "metadata": {
+        "generatedBy": "fallback-rich-template",
+        "note": "AI不可达，使用丰富降级模板 (Day 1/30, 3%)"
+      }
+    },
+    {
+      "goalId": "goal-fallback-1781347724176",
+      "date": "2026-06-14",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "25°C",
+          "city": "本地"
+        },
+        "holiday": {
+          "weekday": "星期日",
+          "isWeekend": true,
+          "events": []
+        },
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 3
+        }
+      },
+      "tasks": [
+        {
+          "time": "08:00",
+          "type": "reminder",
+          "title": "起床提醒",
+          "content": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+          "scheduleId": "sched-fb-1781347724176-1"
+        },
+        {
+          "time": "16:00",
+          "type": "activity",
+          "title": "挑选绘本",
+          "content": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+          "scheduleId": "sched-fb-1781347724176-2"
+        },
+        {
+          "time": "19:00",
+          "type": "routine",
+          "title": "亲子阅读时间",
+          "content": "阅读时间到！🎉 和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+          "scheduleId": "sched-fb-1781347724176-3"
+        },
+        {
+          "time": "19:25",
+          "type": "routine",
+          "title": "阅读分享",
+          "content": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+          "scheduleId": "sched-fb-1781347724176-4"
+        },
+        {
+          "time": "20:10",
+          "type": "routine",
+          "title": "刷牙小卫士",
+          "content": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+          "scheduleId": "sched-fb-1781347724176-5"
+        },
+        {
+          "time": "20:35",
+          "type": "reminder",
+          "title": "睡前晚安 & 打卡完成",
+          "content": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+          "scheduleId": "sched-fb-1781347724176-6"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 0,
+        "reasons": []
+      },
+      "metadata": {
+        "generatedBy": "fallback-rich-template",
+        "note": "AI不可达，使用丰富降级模板 (Day 1/30, 3%)"
+      }
+    },
+    {
+      "goalId": "goal-fallback-1781354976304",
+      "date": "2026-06-14",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "25°C",
+          "city": "本地"
+        },
+        "holiday": {
+          "weekday": "星期日",
+          "isWeekend": true,
+          "events": []
+        },
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 3
+        }
+      },
+      "tasks": [
+        {
+          "time": "08:00",
+          "type": "reminder",
+          "title": "起床提醒",
+          "content": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+          "scheduleId": "sched-fb-1781354976304-1"
+        },
+        {
+          "time": "16:00",
+          "type": "activity",
+          "title": "挑选绘本",
+          "content": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+          "scheduleId": "sched-fb-1781354976304-2"
+        },
+        {
+          "time": "19:00",
+          "type": "routine",
+          "title": "亲子阅读时间",
+          "content": "阅读时间到！🎉 和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+          "scheduleId": "sched-fb-1781354976304-3"
+        },
+        {
+          "time": "19:25",
+          "type": "routine",
+          "title": "阅读分享",
+          "content": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+          "scheduleId": "sched-fb-1781354976304-4"
+        },
+        {
+          "time": "20:10",
+          "type": "routine",
+          "title": "刷牙小卫士",
+          "content": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+          "scheduleId": "sched-fb-1781354976304-5"
+        },
+        {
+          "time": "20:35",
+          "type": "reminder",
+          "title": "睡前晚安 & 打卡完成",
+          "content": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+          "scheduleId": "sched-fb-1781354976304-6"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 0,
+        "reasons": []
+      },
+      "metadata": {
+        "generatedBy": "fallback-rich-template",
+        "note": "AI不可达，使用丰富降级模板 (Day 1/30, 3%)"
+      }
+    },
+    {
+      "goalId": "goal-fallback-1781355231768",
+      "date": "2026-06-14",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "25°C",
+          "city": "本地"
+        },
+        "holiday": {
+          "weekday": "星期日",
+          "isWeekend": true,
+          "events": []
+        },
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 3
+        }
+      },
+      "tasks": [
+        {
+          "time": "08:00",
+          "type": "reminder",
+          "title": "起床提醒",
+          "content": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+          "scheduleId": "sched-fb-1781355231768-1"
+        },
+        {
+          "time": "16:00",
+          "type": "activity",
+          "title": "挑选绘本",
+          "content": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+          "scheduleId": "sched-fb-1781355231768-2"
+        },
+        {
+          "time": "19:00",
+          "type": "routine",
+          "title": "亲子阅读时间",
+          "content": "阅读时间到！🎉 和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+          "scheduleId": "sched-fb-1781355231768-3"
+        },
+        {
+          "time": "19:25",
+          "type": "routine",
+          "title": "阅读分享",
+          "content": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+          "scheduleId": "sched-fb-1781355231768-4"
+        },
+        {
+          "time": "20:10",
+          "type": "routine",
+          "title": "刷牙小卫士",
+          "content": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+          "scheduleId": "sched-fb-1781355231768-5"
+        },
+        {
+          "time": "20:35",
+          "type": "reminder",
+          "title": "睡前晚安 & 打卡完成",
+          "content": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+          "scheduleId": "sched-fb-1781355231768-6"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 0,
+        "reasons": []
+      },
+      "metadata": {
+        "generatedBy": "fallback-rich-template",
+        "note": "AI不可达，使用丰富降级模板 (Day 1/30, 3%)"
+      }
+    },
+    {
+      "goalId": "goal-fallback-1781356247659",
+      "date": "2026-06-14",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "25°C",
+          "city": "本地"
+        },
+        "holiday": {
+          "weekday": "星期日",
+          "isWeekend": true,
+          "events": []
+        },
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 3
+        }
+      },
+      "tasks": [
+        {
+          "time": "08:00",
+          "type": "reminder",
+          "title": "起床提醒",
+          "content": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+          "scheduleId": "sched-fb-1781356247659-1"
+        },
+        {
+          "time": "16:00",
+          "type": "activity",
+          "title": "挑选绘本",
+          "content": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+          "scheduleId": "sched-fb-1781356247659-2"
+        },
+        {
+          "time": "19:00",
+          "type": "routine",
+          "title": "亲子阅读时间",
+          "content": "阅读时间到！🎉 和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+          "scheduleId": "sched-fb-1781356247659-3"
+        },
+        {
+          "time": "19:25",
+          "type": "routine",
+          "title": "阅读分享",
+          "content": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+          "scheduleId": "sched-fb-1781356247659-4"
+        },
+        {
+          "time": "20:10",
+          "type": "routine",
+          "title": "刷牙小卫士",
+          "content": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+          "scheduleId": "sched-fb-1781356247659-5"
+        },
+        {
+          "time": "20:35",
+          "type": "reminder",
+          "title": "睡前晚安 & 打卡完成",
+          "content": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+          "scheduleId": "sched-fb-1781356247659-6"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 0,
+        "reasons": []
+      },
+      "metadata": {
+        "generatedBy": "fallback-rich-template",
+        "note": "AI不可达，使用丰富降级模板 (Day 1/30, 3%)"
+      }
+    },
+    {
+      "goalId": "goal-fallback-1781357364428",
+      "date": "2026-06-14",
+      "dayNumber": 1,
+      "context": {
+        "weather": {
+          "weather": "晴",
+          "temp": "25°C",
+          "city": "本地"
+        },
+        "holiday": {
+          "weekday": "星期日",
+          "isWeekend": true,
+          "events": []
+        },
+        "progress": {
+          "currentDay": 0,
+          "totalDays": 30,
+          "percentage": 3
+        }
+      },
+      "tasks": [
+        {
+          "time": "08:00",
+          "type": "reminder",
+          "title": "起床提醒",
+          "content": "新挑战开始啦！🎉 今天开始我们的30天阅读+刷牙大冒险，宝贝准备好了吗？",
+          "scheduleId": "sched-fb-1781357364428-1"
+        },
+        {
+          "time": "16:00",
+          "type": "activity",
+          "title": "挑选绘本",
+          "content": "挑选今晚绘本📚 小探险家，快去挑一本最喜欢的绘本吧！今晚我们一起读～你选哪本呢？✨",
+          "scheduleId": "sched-fb-1781357364428-2"
+        },
+        {
+          "time": "19:00",
+          "type": "routine",
+          "title": "亲子阅读时间",
+          "content": "阅读时间到！🎉 和爸爸妈妈一起读15分钟，看看故事里有什么有趣的事吧～记住，每天坚持就会越来越棒哦！📖⭐",
+          "scheduleId": "sched-fb-1781357364428-3"
+        },
+        {
+          "time": "19:25",
+          "type": "routine",
+          "title": "阅读分享",
+          "content": "阅读完成，你太棒啦！⭐ 跟爸爸妈妈说说今天读了什么故事？有没有认识新的词语？每一天的坚持都让你变得更厉害哦！🎉",
+          "scheduleId": "sched-fb-1781357364428-4"
+        },
+        {
+          "time": "20:10",
+          "type": "routine",
+          "title": "刷牙小卫士",
+          "content": "刷牙时间到咯～🦷 拿起小牙刷，上上下下左左右右，把蛀牙小怪兽全部赶跑！刷完记得让爸爸妈妈检查，白白的牙齿真好看！😁✨",
+          "scheduleId": "sched-fb-1781357364428-5"
+        },
+        {
+          "time": "20:35",
+          "type": "reminder",
+          "title": "睡前晚安 & 打卡完成",
+          "content": "第1天挑战圆满成功！🎉 今天你读了故事又刷了牙，已经迈出了成为习惯小超人的第一步！明天继续加油，晚安宝贝，做个甜甜的梦～🌙😴",
+          "scheduleId": "sched-fb-1781357364428-6"
+        }
+      ],
+      "adjustmentSummary": {
+        "totalAdjustments": 0,
+        "reasons": []
+      },
+      "metadata": {
+        "generatedBy": "fallback-rich-template",
+        "note": "AI不可达，使用丰富降级模板 (Day 1/30, 3%)"
+      }
     }
   ],
   "retentionPolicy": {
     "maxAgeDays": 90,
     "maxPlansPerGoal": 100
   },
-  "lastUpdated": "2026-06-08T08:55:03.878Z"
+  "lastUpdated": "2026-06-13T14:01:01.143Z"
 }

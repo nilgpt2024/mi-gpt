@@ -155,7 +155,8 @@ export class SmartTaskGenerator {
     // 调整计划的关键词
     const adjustKeywords = [
       /调整|重新生成|更新|修改.*?计划/,
-      /生成.*?(明天|今日|今天|现在).*?计划/,
+      /生成.*?(明天|今日|今天|现在|\d{4}[-/]\d{1,2}[-/]\d{1,2}|明日).*?计划/,
+      /自动.*?生成.*?计划/,
       /刷新|重做.*?任务/
     ];
 
@@ -165,6 +166,14 @@ export class SmartTaskGenerator {
         let targetDate = 'tomorrow'; // 默认明天
         if (/今日|今天|现在/.test(text)) {
           targetDate = 'today';
+        } else if (/明日/.test(text)) {
+          targetDate = 'tomorrow';
+        } else {
+          // 尝试提取 YYYY-MM-DD 或 YYYY/MM/DD 格式日期
+          const dateMatch = text.match(/(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);
+          if (dateMatch) {
+            targetDate = `${dateMatch[1]}-${dateMatch[2].padStart(2, '0')}-${dateMatch[3].padStart(2, '0')}`;
+          }
         }
         return { type: 'adjust_plan', confidence: 0.85, targetDate };
       }

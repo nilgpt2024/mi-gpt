@@ -1,0 +1,75 @@
+{
+  "goalId": "daily-habit-kids-lz8x9m2",
+  "date": "2026-06-13",
+  "dayNumber": 1,
+  "context": {
+    "weather": {
+      "weather": "晴",
+      "temp": "24°C",
+      "feelsLike": "25°C",
+      "humidity": "74%",
+      "uvIndex": "0 (低)",
+      "windSpeed": "12 km/h",
+      "visibility": "10 km",
+      "tips": "温度适宜，适合户外活动",
+      "city": "北京",
+      "cityEn": "beijing"
+    },
+    "holiday": [
+      "周末"
+    ],
+    "progress": {
+      "currentDay": 0,
+      "totalDays": 30,
+      "percentage": 0,
+      "streak": 0
+    }
+  },
+  "tasks": [
+    {
+      "time": "08:00",
+      "type": "routine",
+      "title": "刷牙小勇士",
+      "content": "早上好小勇士！第1天开始啦！快来把牙齿刷得白白的，像小珍珠一样闪闪发光～🦷✨",
+      "scheduleId": "sched-001"
+    },
+    {
+      "time": "15:00",
+      "type": "reminder",
+      "title": "阅读小提醒",
+      "content": "叮咚～小书迷时间到！今天想看哪本绘本呢？选一本最爱的，等晚上我们一起读哦！📚",
+      "scheduleId": "sched-002"
+    },
+    {
+      "time": "19:00",
+      "type": "activity",
+      "title": "一起读绘本",
+      "content": "宝贝，阅读时间到啦！今天是第1天，拿出你选好的绘本，让我们一起走进故事的世界吧！读完后你会变得更聪明哦～🌟",
+      "scheduleId": "sched-003"
+    },
+    {
+      "time": "19:35",
+      "type": "activity",
+      "title": "阅读完成",
+      "content": "太棒啦！你已经完成了第1天的阅读任务，已经坚持0%啦！每一天的积累都会让你变得更棒，继续加油！🎉📖",
+      "scheduleId": "sched-004"
+    },
+    {
+      "time": "21:00",
+      "type": "routine",
+      "title": "睡前刷牙",
+      "content": "月亮姐姐出来了，小牙齿也要晚安啦！来把牙虫赶跑，做个香喷喷的好梦。明天早上我们继续坚持哦～🌙🦷💤",
+      "scheduleId": "sched-005"
+    }
+  ],
+  "adjustmentSummary": {
+    "totalAdjustments": 0,
+    "reasons": []
+  },
+  "metadata": {
+    "generatedAt": "2026-06-12T14:03:18.505Z",
+    "generatedBy": "opencode-extracted",
+    "model": "gpt-4o-mini",
+    "extractedFrom": "text-response"
+  }
+}

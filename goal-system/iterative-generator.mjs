@@ -41,6 +41,7 @@ export class IterativeFileGenerator {
   async generateWithValidation(promptOptions, expectedFileType = 'goal') {
     let lastError = null;
     let attempt = 0;
+    let currentSessionId = null; // 复用同一个 session，让 OpenCode 有上下文
 
     console.log(`\n${'='.repeat(60)}`);
     console.log(`🔄 [IterativeGenerator] 开始生成: type=${expectedFileType}`);
@@ -59,9 +60,29 @@ export class IterativeFileGenerator {
         const enhancedPrompt = this._buildEnhancedPrompt(promptOptions, lastError);
 
         // Step 3: 调用 OpenCode
+        console.log(`\n${'═'.repeat(60)}`);
         console.log(`📤 [IterativeGenerator] 发送请求到 OpenCode...`);
+        console.log(`   模型: ${promptOptions.model || 'gpt-4o-mini'}`);
+        console.log(`   尝试: ${attempt}/${this.maxRetries}`);
+        console.log(`${'─'.repeat(60)}`);
+
+        if (promptOptions.systemPrompt) {
+          console.log(`🔧 [OpenCode] System Prompt (${promptOptions.systemPrompt.length} 字符):`);
+          console.log('---SYSTEM_PROMPT_START---');
+          console.log(promptOptions.systemPrompt);
+          console.log('---SYSTEM_PROMPT_END---');
+        } else {
+          console.log(`⚠️ [OpenCode] System Prompt: 未设置（使用模型默认）`);
+        }
+
+        console.log(`\n💬 [OpenCode] User Prompt (${enhancedPrompt.length} 字符):`);
+        console.log('---USER_PROMPT_START---');
+        console.log(enhancedPrompt);
+        console.log('---USER_PROMPT_END---');
+        console.log(`${'═'.repeat(60)}\n`);
+
         const opencodeResponse = await this.sessionManager.chat(
-          { text: enhancedPrompt },
+          { text: enhancedPrompt, ...(currentSessionId ? { sessionId: currentSessionId } : {}) },
           {
             model: promptOptions.model || 'gpt-4o-mini',
             temperature: this._getTemperature(attempt),
@@ -71,9 +92,22 @@ export class IterativeFileGenerator {
           }
         );
 
+        // 保存 sessionId 用于后续重试（同一 session 保持上下文）
+        if (!currentSessionId && opencodeResponse?.sessionId) {
+          currentSessionId = opencodeResponse.sessionId;
+          console.log(`🔗 [IterativeGenerator] Session ID: ${currentSessionId}`);
+        } else if (currentSessionId) {
+          console.log(`🔄 [IterativeGenerator] 复用 Session: ${currentSessionId} (第${attempt}次重试)`);
+        }
+
         // Step 4: 解析混合响应
         console.log(`🔍 [IterativeGenerator] 解析 OpenCode 响应...`);
         console.log(`📝 [IterativeGenerator] AI 原始响应 (${typeof opencodeResponse === 'string' ? opencodeResponse.length : 'object'} 字符): ${typeof opencodeResponse === 'string' ? opencodeResponse.substring(0, 200) : JSON.stringify(opencodeResponse).substring(0, 200)}`);
+        if (opencodeResponse?.rawResponse) {
+          const raw = opencodeResponse.rawResponse;
+          const rawStr = typeof raw === 'string' ? raw : JSON.stringify(raw);
+          console.log(`📦 [IterativeGenerator] rawResponse (${rawStr.length} 字符): ${rawStr.substring(0, 300)}`);
+        }
         const parsedResponse = await this.parser.parse(opencodeResponse, {
           directory: workingDir,
           beforeSnapshot,

@@ -1,0 +1,73 @@
+{
+  "goalId": "daily-habit-kids-lz8x9m2",
+  "date": "2026-06-12",
+  "dayNumber": 1,
+  "context": {
+    "weather": {
+      "weather": "晴",
+      "temp": "26°C",
+      "feelsLike": "25°C",
+      "humidity": "42%",
+      "uvIndex": "0 (低)",
+      "windSpeed": "17 km/h",
+      "visibility": "10 km",
+      "tips": "温度适宜，适合户外活动",
+      "city": "北京",
+      "cityEn": "beijing"
+    },
+    "holiday": [],
+    "progress": {
+      "currentDay": 0,
+      "totalDays": 30,
+      "percentage": 0,
+      "streak": 0
+    }
+  },
+  "tasks": [
+    {
+      "time": "07:45",
+      "type": "routine",
+      "title": "晨间刷牙小勇士",
+      "content": "早上好小宝贝！新挑战开始啦🎉 今天是第1天哦！先帮牙齿洗个澡，把它们刷得闪闪亮吧～🪥✨",
+      "scheduleId": "sched-001"
+    },
+    {
+      "time": "08:30",
+      "type": "meal",
+      "title": "营养早餐时间",
+      "content": "刷完牙肚肚饿了吧？今天天气超好☀️，吃完早餐可以去外面玩一会儿，和小花小草说早安呀🌸",
+      "scheduleId": "sched-002"
+    },
+    {
+      "time": "19:00",
+      "type": "routine",
+      "title": "晚间阅读时光",
+      "content": "天黑啦，挑一本最喜欢的绘本，和妈妈一起读吧📚 今天是阅读旅程的第一站，看看书里藏着什么小秘密呢？⭐",
+      "scheduleId": "sched-003"
+    },
+    {
+      "time": "19:35",
+      "type": "routine",
+      "title": "睡前刷牙仪式",
+      "content": "读完故事啦！现在让牙膏泡泡把牙齿上的小细菌赶跑吧🦷💪 刷完就能听晚安故事咯，今天也是棒棒的一天！🌙",
+      "scheduleId": "sched-004"
+    },
+    {
+      "time": "20:00",
+      "type": "reminder",
+      "title": "第一天打卡完成",
+      "content": "叮咚～ 第1天所有任务全部完成🎉 你已经迈出了30天旅程的第一步，太了不起啦！明天继续加油哦，晚安宝贝😴💤",
+      "scheduleId": "sched-005"
+    }
+  ],
+  "adjustmentSummary": {
+    "totalAdjustments": 0,
+    "reasons": []
+  },
+  "metadata": {
+    "generatedAt": "2026-06-11T14:02:15.028Z",
+    "generatedBy": "opencode-extracted",
+    "model": "gpt-4o-mini",
+    "extractedFrom": "text-response"
+  }
+}
